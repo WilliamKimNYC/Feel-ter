@@ -1,0 +1,43 @@
+/* Define your accent color */
+:root {
+    --accent-pink: #f684a7;
+  }
+  
+  /* Navbar background */
+  .navbar {
+    background-color: var(--accent-pink) !important;
+  }
+  
+  /* Navbar links stay white */
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    color: #fff !important;
+  }
+  
+  /* Primary buttons */
+  .btn-primary {
+    background-color: var(--accent-pink);
+    border-color: var(--accent-pink);
+  }
+  
+  /* Hover state for primary buttons */
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #d66f94;
+    border-color: #d66f94;
+  }
+  
+  /* If you’re using outline or light buttons for contrast */
+  .btn-outline-light {
+    color: var(--accent-pink);
+    border-color: var(--accent-pink);
+  }
+  
+  .btn-outline-light:hover {
+    background-color: var(--accent-pink);
+    color: white;
+  }
+  
+  .nav-pink {
+    background-color: #f684a7 !important;
+  }
