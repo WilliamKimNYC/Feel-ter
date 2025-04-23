@@ -459,12 +459,523 @@ monogatari.script ({
 		'next',
 		'alex "3. Change requires both individual and systemic action."',
 		'next',
-		'alex "Would you like to continue learning?"',
+		'alex "Would you like to test your knowledge with a quiz?"',
 		'next',
 		{
 			'Choice': {
+				'Take the Quiz': {
+					'Text': 'Take the Quiz',
+					'Do': 'jump Quiz_Start'
+				},
 				'Try Another Scenario': {
 					'Text': 'Try Another Scenario',
+					'Do': 'jump Next_Choice'
+				},
+				'End Session': {
+					'Text': 'End Session',
+					'Do': 'jump End'
+				}
+			}
+		}
+	],
+
+	'Quiz_Start': [
+		'show scene office with fadeIn',
+		'show character alex default at center with fadeIn',
+		'alex "Let\'s test your understanding of microaggressions with a short quiz."',
+		'next',
+		'alex "For each question, choose the best answer. You\'ll receive feedback after each question."',
+		'next',
+		{
+			'Function': {
+				'Apply': function () {
+					monogatari.storage({
+						quiz: {
+							score: 0,
+							attempts: 0,
+							currentQuestion: 1,
+							answers: {},
+							reviewMode: false
+						}
+					});
+				}
+			}
+		},
+		'jump Quiz_Question_1'
+	],
+
+	'Quiz_Question_1': [
+		'show character alex default at center with fadeIn',
+		{
+			'Function': {
+				'Apply': function () {
+					monogatari.storage({
+						quiz: {
+							score: 0,
+							attempts: 0,
+							currentQuestion: 1,
+							answers: {}
+						}
+					});
+				}
+			}
+		},
+		'alex "Question 1 of 5: What is a microaggression?"',
+		'next',
+		{
+			'Choice': {
+				'A subtle, often unintentional expression of bias or prejudice': {
+					'Text': 'A subtle, often unintentional expression of bias or prejudice',
+					'Do': 'jump Quiz_Feedback_1_Correct'
+				},
+				'An obvious act of discrimination': {
+					'Text': 'An obvious act of discrimination',
+					'Do': 'jump Quiz_Feedback_1_Incorrect'
+				},
+				'A formal complaint about workplace behavior': {
+					'Text': 'A formal complaint about workplace behavior',
+					'Do': 'jump Quiz_Feedback_1_Incorrect'
+				},
+				'A type of workplace harassment': {
+					'Text': 'A type of workplace harassment',
+					'Do': 'jump Quiz_Feedback_1_Incorrect'
+				}
+			}
+		}
+	],
+
+	'Quiz_Feedback_1_Correct': [
+		'show character alex default at center with fadeIn',
+		'alex "Correct! Microaggressions are subtle, often unintentional expressions of bias or prejudice."',
+		'next',
+		{
+			'Function': {
+				'Apply': function () {
+					const quiz = monogatari.storage('quiz') || {};
+					monogatari.storage({
+						quiz: {
+							...quiz,
+							score: (quiz.score || 0) + 1,
+							currentQuestion: 2,
+							answers: {
+								...quiz.answers,
+								q1: 'correct'
+							}
+						}
+					});
+				}
+			}
+		},
+		'jump Quiz_Question_2'
+	],
+
+	'Quiz_Feedback_1_Incorrect': [
+		'show character alex default at center with fadeIn',
+		'alex "Not quite. Microaggressions are subtle, often unintentional expressions of bias or prejudice."',
+		'next',
+		{
+			'Function': {
+				'Apply': function () {
+					const quiz = monogatari.storage('quiz') || {};
+					monogatari.storage({
+						quiz: {
+							...quiz,
+							attempts: (quiz.attempts || 0) + 1,
+							answers: {
+								...quiz.answers,
+								q1: 'incorrect'
+							}
+						}
+					});
+				}
+			}
+		},
+		'alex "Let\'s try that question again."',
+		'next',
+		'jump Quiz_Question_1'
+	],
+
+	'Quiz_Question_2': [
+		'show character alex default at center with fadeIn',
+		'alex "Question 2 of 5: Which of the following is an example of an environmental microaggression?"',
+		'next',
+		{
+			'Choice': {
+				'A workplace with only one type of demographic in leadership photos': {
+					'Text': 'A workplace with only one type of demographic in leadership photos',
+					'Do': 'jump Quiz_Feedback_2_Correct'
+				},
+				'A coworker making a comment about someone\'s accent': {
+					'Text': 'A coworker making a comment about someone\'s accent',
+					'Do': 'jump Quiz_Feedback_2_Incorrect'
+				},
+				'A manager assigning tasks based on stereotypes': {
+					'Text': 'A manager assigning tasks based on stereotypes',
+					'Do': 'jump Quiz_Feedback_2_Incorrect'
+				},
+				'A colleague using inappropriate language': {
+					'Text': 'A colleague using inappropriate language',
+					'Do': 'jump Quiz_Feedback_2_Incorrect'
+				}
+			}
+		}
+	],
+
+	'Quiz_Feedback_2_Correct': [
+		'show character alex default at center with fadeIn',
+		'alex "Correct! Environmental microaggressions are subtle messages in our physical surroundings that make certain groups feel unwelcome."',
+		'next',
+		{
+			'Function': {
+				'Apply': function () {
+					const quiz = monogatari.storage('quiz') || {};
+					monogatari.storage({
+						quiz: {
+							...quiz,
+							score: (quiz.score || 0) + 1,
+							currentQuestion: 3,
+							answers: {
+								...quiz.answers,
+								q2: 'correct'
+							}
+						}
+					});
+				}
+			}
+		},
+		'jump Quiz_Question_3'
+	],
+
+	'Quiz_Feedback_2_Incorrect': [
+		'show character alex default at center with fadeIn',
+		'alex "Not quite. Environmental microaggressions are subtle messages in our physical surroundings, like having only one type of demographic in leadership photos."',
+		'next',
+		{
+			'Function': {
+				'Apply': function () {
+					const quiz = monogatari.storage('quiz') || {};
+					monogatari.storage({
+						quiz: {
+							...quiz,
+							attempts: (quiz.attempts || 0) + 1,
+							answers: {
+								...quiz.answers,
+								q2: 'incorrect'
+							}
+						}
+					});
+				}
+			}
+		},
+		'alex "Let\'s try that question again."',
+		'next',
+		'jump Quiz_Question_2'
+	],
+
+	'Quiz_Question_3': [
+		'show character alex default at center with fadeIn',
+		'alex "Question 3 of 5: What is the most effective way to respond to a microaggression?"',
+		'next',
+		{
+			'Choice': {
+				'Address it calmly and professionally while maintaining a constructive dialogue': {
+					'Text': 'Address it calmly and professionally while maintaining a constructive dialogue',
+					'Do': 'jump Quiz_Feedback_3_Correct'
+				},
+				'Ignore it to avoid conflict': {
+					'Text': 'Ignore it to avoid conflict',
+					'Do': 'jump Quiz_Feedback_3_Incorrect'
+				},
+				'Respond with anger to make your point': {
+					'Text': 'Respond with anger to make your point',
+					'Do': 'jump Quiz_Feedback_3_Incorrect'
+				},
+				'Report it immediately to HR': {
+					'Text': 'Report it immediately to HR',
+					'Do': 'jump Quiz_Feedback_3_Incorrect'
+				}
+			}
+		}
+	],
+
+	'Quiz_Feedback_3_Correct': [
+		'show character alex default at center with fadeIn',
+		'alex "Correct! Addressing microaggressions calmly and professionally while maintaining a constructive dialogue is the most effective approach."',
+		'next',
+		{
+			'Function': {
+				'Apply': function () {
+					const quiz = monogatari.storage('quiz') || {};
+					monogatari.storage({
+						quiz: {
+							...quiz,
+							score: (quiz.score || 0) + 1,
+							currentQuestion: 4,
+							answers: {
+								...quiz.answers,
+								q3: 'correct'
+							}
+						}
+					});
+				}
+			}
+		},
+		'jump Quiz_Question_4'
+	],
+
+	'Quiz_Feedback_3_Incorrect': [
+		'show character alex default at center with fadeIn',
+		'alex "Not quite. The most effective approach is to address it calmly and professionally while maintaining a constructive dialogue."',
+		'next',
+		{
+			'Function': {
+				'Apply': function () {
+					const quiz = monogatari.storage('quiz') || {};
+					monogatari.storage({
+						quiz: {
+							...quiz,
+							attempts: (quiz.attempts || 0) + 1,
+							answers: {
+								...quiz.answers,
+								q3: 'incorrect'
+							}
+						}
+					});
+				}
+			}
+		},
+		'alex "Let\'s try that question again."',
+		'next',
+		'jump Quiz_Question_3'
+	],
+
+	'Quiz_Question_4': [
+		'show character alex default at center with fadeIn',
+		'alex "Question 4 of 5: Which of the following is an example of a verbal microaggression?"',
+		'next',
+		{
+			'Choice': {
+				'You\'re so articulate for someone from your background!': {
+					'Text': 'You\'re so articulate for someone from your background!',
+					'Do': 'jump Quiz_Feedback_4_Correct'
+				},
+				'Please submit your report by Friday.': {
+					'Text': 'Please submit your report by Friday.',
+					'Do': 'jump Quiz_Feedback_4_Incorrect'
+				},
+				'Good morning, how are you?': {
+					'Text': 'Good morning, how are you?',
+					'Do': 'jump Quiz_Feedback_4_Incorrect'
+				},
+				'The meeting starts at 2 PM.': {
+					'Text': 'The meeting starts at 2 PM.',
+					'Do': 'jump Quiz_Feedback_4_Incorrect'
+				}
+			}
+		}
+	],
+
+	'Quiz_Feedback_4_Correct': [
+		'show character alex default at center with fadeIn',
+		'alex "Correct! This comment implies prejudiced expectations based on someone\'s background."',
+		'next',
+		'alex "The comment suggests that being articulate is unexpected for someone from a particular background, which reinforces harmful stereotypes."',
+		'next',
+		{
+			'Function': {
+				'Apply': function () {
+					const quiz = monogatari.storage('quiz') || {};
+					monogatari.storage({
+						quiz: {
+							...quiz,
+							score: (quiz.score || 0) + 1,
+							currentQuestion: 5,
+							answers: {
+								...quiz.answers,
+								q4: 'correct'
+							}
+						}
+					});
+				}
+			}
+		},
+		'jump Quiz_Question_5'
+	],
+
+	'Quiz_Feedback_4_Incorrect': [
+		'show character alex default at center with fadeIn',
+		'alex "Not quite. The comment \"You\'re so articulate for someone from your background!\" is a verbal microaggression."',
+		'next',
+		'alex "This type of comment implies that being articulate is unexpected for someone from a particular background, which reinforces harmful stereotypes."',
+		'next',
+		'alex "Verbal microaggressions often contain hidden assumptions or prejudiced expectations."',
+		'next',
+		{
+			'Function': {
+				'Apply': function () {
+					const quiz = monogatari.storage('quiz') || {};
+					monogatari.storage({
+						quiz: {
+							...quiz,
+							attempts: (quiz.attempts || 0) + 1,
+							answers: {
+								...quiz.answers,
+								q4: 'incorrect'
+							}
+						}
+					});
+				}
+			}
+		},
+		'alex "Let\'s try that question again."',
+		'next',
+		'jump Quiz_Question_4'
+	],
+
+	'Quiz_Question_5': [
+		'show character alex default at center with fadeIn',
+		'alex "Question 5 of 5: What is the purpose of addressing microaggressions?"',
+		'next',
+		{
+			'Choice': {
+				'To create more inclusive environments through education and growth': {
+					'Text': 'To create more inclusive environments through education and growth',
+					'Do': 'jump Quiz_Feedback_5_Correct'
+				},
+				'To punish those who commit microaggressions': {
+					'Text': 'To punish those who commit microaggressions',
+					'Do': 'jump Quiz_Feedback_5_Incorrect'
+				},
+				'To create conflict in the workplace': {
+					'Text': 'To create conflict in the workplace',
+					'Do': 'jump Quiz_Feedback_5_Incorrect'
+				},
+				'To document workplace issues': {
+					'Text': 'To document workplace issues',
+					'Do': 'jump Quiz_Feedback_5_Incorrect'
+				}
+			}
+		}
+	],
+
+	'Quiz_Feedback_5_Correct': [
+		'show character alex default at center with fadeIn',
+		'alex "Correct! The purpose is to create more inclusive environments through education and growth, not blame or shame."',
+		'next',
+		{
+			'Function': {
+				'Apply': function () {
+					const quiz = monogatari.storage('quiz') || {};
+					monogatari.storage({
+						quiz: {
+							...quiz,
+							score: (quiz.score || 0) + 1,
+							answers: {
+								...quiz.answers,
+								q5: 'correct'
+							}
+						}
+					});
+				}
+			}
+		},
+		'jump Quiz_Results'
+	],
+
+	'Quiz_Feedback_5_Incorrect': [
+		'show character alex default at center with fadeIn',
+		'alex "Not quite. The purpose is to create more inclusive environments through education and growth, not to punish or create conflict."',
+		'next',
+		'alex "Let\'s try that question again."',
+		'next',
+		'jump Quiz_Question_5'
+	],
+
+	'Quiz_Results': [
+		'show character alex default at center with fadeIn',
+		{
+			'Function': {
+				'Apply': function () {
+					const quiz = monogatari.storage('quiz') || {};
+					const totalQuestions = 5;
+					const percentage = ((quiz.score || 0) / totalQuestions) * 100;
+					
+					let feedback;
+					if (percentage >= 80) {
+						feedback = "Excellent! You have a strong understanding of microaggressions.";
+					} else if (percentage >= 60) {
+						feedback = "Good job! You have a good understanding of microaggressions.";
+					} else {
+						feedback = "Keep learning! Understanding microaggressions is an ongoing process.";
+					}
+					
+					monogatari.storage({
+						quiz: {
+							...quiz,
+							percentage: percentage,
+							feedback: feedback,
+							reviewMode: true
+						}
+					});
+				}
+			}
+		},
+		'alex "Quiz Results: You scored {{quiz.score}} out of 5 ({{quiz.percentage}}%)"',
+		'next',
+		'alex "Total attempts: {{quiz.attempts}}"',
+		'next',
+		'alex "{{quiz.feedback}}"',
+		'next',
+		'alex "Would you like to:"',
+		'next',
+		{
+			'Choice': {
+				'Review Questions': {
+					'Text': 'Review Questions',
+					'Do': 'jump Quiz_Review'
+				},
+				'Review the Scenarios': {
+					'Text': 'Review the Scenarios',
+					'Do': 'jump Next_Choice'
+				},
+				'End Session': {
+					'Text': 'End Session',
+					'Do': 'jump End'
+				}
+			}
+		}
+	],
+
+	'Quiz_Review': [
+		'show character alex default at center with fadeIn',
+		'alex "Let\'s review the questions and your answers:"',
+		'next',
+		'alex "Question 1: What is a microaggression?"',
+		'next',
+		'alex "Your answer was {{quiz.answers.q1 === \'correct\' ? \'correct\' : \'incorrect\'}}."',
+		'next',
+		'alex "Question 2: Which of the following is an example of an environmental microaggression?"',
+		'next',
+		'alex "Your answer was {{quiz.answers.q2 === \'correct\' ? \'correct\' : \'incorrect\'}}."',
+		'next',
+		'alex "Question 3: What is the most effective way to respond to a microaggression?"',
+		'next',
+		'alex "Your answer was {{quiz.answers.q3 === \'correct\' ? \'correct\' : \'incorrect\'}}."',
+		'next',
+		'alex "Question 4: Which of the following is an example of a verbal microaggression?"',
+		'next',
+		'alex "Your answer was {{quiz.answers.q4 === \'correct\' ? \'correct\' : \'incorrect\'}}."',
+		'next',
+		'alex "Question 5: What is the purpose of addressing microaggressions?"',
+		'next',
+		'alex "Your answer was {{quiz.answers.q5 === \'correct\' ? \'correct\' : \'incorrect\'}}."',
+		'next',
+		'alex "Would you like to:"',
+		'next',
+		{
+			'Choice': {
+				'Review the Scenarios': {
+					'Text': 'Review the Scenarios',
 					'Do': 'jump Next_Choice'
 				},
 				'End Session': {
