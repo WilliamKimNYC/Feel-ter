@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Understanding Microaggressions - Interactive Learning{% endblock %}
+
+{% block content %}
+<div class="homepage-content">
+    <h1>Understanding Microaggressions</h1>
+    <p>Explore the subtle, often unintentional expressions of bias through an interactive visual novel experience. Learn to recognize, understand, and address microaggressions in everyday situations.</p>
+    
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-book-reader"></i>
+            <h3>Interactive Scenarios</h3>
+            <p>Experience realistic situations and learn how to respond appropriately.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-comments"></i>
+            <h3>Real Conversations</h3>
+            <p>Practice having difficult conversations about microaggressions.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Learn & Grow</h3>
+            <p>Develop awareness and skills to create more inclusive environments.</p>
+        </div>
+    </div>
+
+    <div class="cta-buttons">
+        <a href="{{ url_for('visual_novel') }}" class="cta-button">Start Learning</a>
+    </div>
+</div>
+{% endblock %} 

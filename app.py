@@ -1,30 +1,31 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.', static_url_path='')
 
 @app.route('/')
-def home():
-    return render_template('home.html')
+def homepage():
+    return render_template('homepage.html')
 
-@app.route('/setup-profile')
-def setup_profile():
-    return render_template('setup-profile.html')
+@app.route('/novel')
+def visual_novel():
+    return render_template('novel.html')
 
-@app.route('/select-chapter')
-def select_chapter():
-    return render_template('select-chapter.html')
+@app.route('/assets/<path:filename>')
+def serve_assets(filename):
+    return send_from_directory('assets', filename)
 
-@app.route('/chapter/1')
-def chapter1():
-    return render_template('chapter-1-microassaults.html')
+@app.route('/js/<path:filename>')
+def serve_js(filename):
+    return send_from_directory('js', filename)
 
-@app.route('/quiz')
-def quiz():
-    return render_template('take-quiz.html')
+@app.route('/style/<path:filename>')
+def serve_style(filename):
+    return send_from_directory('style', filename)
 
-@app.route('/quiz/results')
-def quiz_results():
-    return render_template('quiz-results.html')
+@app.route('/engine/<path:filename>')
+def serve_engine(filename):
+    return send_from_directory('engine', filename)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True) 

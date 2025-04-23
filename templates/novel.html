@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Visual Novel - Visual Novel Site{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('serve_engine', filename='core/monogatari.css') }}">
+<link rel="stylesheet" href="{{ url_for('serve_style', filename='main.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="fullscreen-button">
+    <button id="toggleFullscreen" title="Toggle Fullscreen">
+        <i class="fas fa-expand"></i>
+    </button>
+</div>
+<div id="monogatari">
+    <visual-novel>
+        <language-selection-screen></language-selection-screen>
+        <loading-screen></loading-screen>
+        <main-screen>
+            <main-menu></main-menu>
+        </main-screen>
+        <game-screen>
+            <dialog-log></dialog-log>
+            <text-box></text-box>
+            <quick-menu></quick-menu>
+        </game-screen>
+        <gallery-screen></gallery-screen>
+        <credits-screen></credits-screen>
+        <load-screen></load-screen>
+        <save-screen></save-screen>
+        <settings-screen></settings-screen>
+        <help-screen></help-screen>
+    </visual-novel>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('serve_engine', filename='debug/debug.js') }}"></script>
+<script src="{{ url_for('serve_engine', filename='core/monogatari.js') }}"></script>
+<script src="{{ url_for('serve_js', filename='options.js') }}"></script>
+<script src="{{ url_for('serve_js', filename='storage.js') }}"></script>
+<script src="{{ url_for('serve_js', filename='script.js') }}"></script>
+<script src="{{ url_for('serve_js', filename='main.js') }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fullscreenButton = document.getElementById('toggleFullscreen');
+    const navbar = document.querySelector('.navbar');
+    const monogatari = document.getElementById('monogatari');
+    const content = document.querySelector('.content');
+    
+    fullscreenButton.addEventListener('click', function() {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+            navbar.style.display = 'block';
+            monogatari.style.height = 'calc(100vh - var(--navbar-height))';
+            monogatari.style.marginTop = 'var(--navbar-height)';
+            content.style.marginTop = 'calc(var(--navbar-height) + 2rem)';
+            fullscreenButton.innerHTML = '<i class="fas fa-expand"></i>';
+        } else {
+            document.documentElement.requestFullscreen();
+            navbar.style.display = 'none';
+            monogatari.style.height = '100vh';
+            monogatari.style.marginTop = '0';
+            content.style.marginTop = '0';
+            fullscreenButton.innerHTML = '<i class="fas fa-compress"></i>';
+        }
+    });
+});
+</script>
+{% endblock %} 

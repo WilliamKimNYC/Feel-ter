@@ -1,0 +1,6 @@
+- come up with name
+- update favicon
+- create assets
+    - asset 1
+    - asset 2
+- finish toDoList
