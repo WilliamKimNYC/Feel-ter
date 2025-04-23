@@ -74,7 +74,12 @@ monogatari.assets ('videos', {
 
 // Define the images used in the game.
 monogatari.assets ('images', {
-
+	'characters/alex/default.png': 'characters/alex/default.png',
+	'characters/professor/default.png': 'characters/professor/default.png',
+	'characters/coworker/default.png': 'characters/coworker/default.png',
+	'characters/student/default.png': 'characters/student/default.png',
+	'characters/manager/default.png': 'characters/manager/default.png',
+	'characters/colleague/default.png': 'characters/colleague/default.png'
 });
 
 // Define the backgrounds for each scene.
@@ -94,37 +99,49 @@ monogatari.characters ({
 		name: 'Alex',
 		color: '#3498db',
 		directory: 'alex',
-		default: 'default.png'
+		sprites: {
+			default: 'default.png'
+		}
 	},
 	'professor': {
 		name: 'Professor',
 		color: '#2c3e50',
 		directory: 'professor',
-		default: 'default.png'
+		sprites: {
+			default: 'default.png'
+		}
 	},
 	'coworker': {
 		name: 'Coworker',
 		color: '#e74c3c',
 		directory: 'coworker',
-		default: 'default.png'
+		sprites: {
+			default: 'default.png'
+		}
 	},
 	'student': {
 		name: 'Student',
 		color: '#27ae60',
 		directory: 'student',
-		default: 'default.png'
+		sprites: {
+			default: 'default.png'
+		}
 	},
 	'manager': {
 		name: 'Manager',
 		color: '#8e44ad',
 		directory: 'manager',
-		default: 'default.png'
+		sprites: {
+			default: 'default.png'
+		}
 	},
 	'colleague': {
 		name: 'Colleague',
 		color: '#d35400',
 		directory: 'colleague',
-		default: 'default.png'
+		sprites: {
+			default: 'default.png'
+		}
 	}
 });
 
@@ -161,7 +178,7 @@ monogatari.script ({
 	],
 
 	'Start_Dialogue': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Welcome {{player.name}}! I\'m Alex, and I\'ll be your guide through this interactive learning experience about microaggressions."',
 		'show message Types',
 		'alex "Today, we\'ll explore different types of microaggressions and learn effective ways to respond to them."',
@@ -190,12 +207,12 @@ monogatari.script ({
 
 	'Environmental': [
 		'show scene hallway with fadeIn',
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Environmental microaggressions are subtle messages in our physical surroundings that make certain groups feel unwelcome."',
 		'next',
 		'alex "For example, imagine walking down this hallway..."',
 		'next',
-		'show character colleague with fadeIn',
+		'show character colleague default at center with fadeIn',
 		'colleague "Have you noticed that all the leadership photos on our wall are of one demographic? It\'s a bit discouraging."',
 		'next',
 		{
@@ -217,7 +234,7 @@ monogatari.script ({
 	],
 
 	'Environmental_Good': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Excellent choice, {{player.name}}! Acknowledging the issue and suggesting change is proactive."',
 		'next',
 		'alex "You could say: \'You\'re right. We should bring this up in the next diversity and inclusion meeting. Having diverse representation in leadership photos matters.\'"',
@@ -227,7 +244,7 @@ monogatari.script ({
 	],
 
 	'Environmental_Bad': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "While it might seem easier to dismiss the observation, {{player.name}}, this approach doesn\'t address the underlying issue."',
 		'next',
 		'alex "Let\'s try a more constructive approach."',
@@ -235,7 +252,7 @@ monogatari.script ({
 	],
 
 	'Environmental_Neutral': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Avoiding the topic might seem comfortable, {{player.name}}, but it allows the issue to persist."',
 		'next',
 		'alex "Let\'s try a more proactive approach."',
@@ -244,10 +261,10 @@ monogatari.script ({
 
 	'Verbal': [
 		'show scene meeting with fadeIn',
-		'show character manager with fadeIn',
+		'show character manager default at center with fadeIn',
 		'manager "You\'re so well-spoken! You don\'t sound like other people from your neighborhood."',
 		'next',
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "This is a verbal microaggression that implies prejudiced expectations based on someone\'s background."',
 		'next',
 		{
@@ -269,7 +286,7 @@ monogatari.script ({
 	],
 
 	'Verbal_Good': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Well done, {{player.name}}! Addressing the bias directly but professionally is effective."',
 		'next',
 		'alex "You might say: \'I appreciate that you find me articulate, but that comment suggests certain assumptions about people from my neighborhood. Perhaps we could discuss why you have those expectations?\'"',
@@ -279,7 +296,7 @@ monogatari.script ({
 	],
 
 	'Verbal_Bad': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "While accepting it as a compliment might seem polite, {{player.name}}, it reinforces harmful stereotypes."',
 		'next',
 		'alex "Let\'s try a more constructive approach."',
@@ -287,7 +304,7 @@ monogatari.script ({
 	],
 
 	'Verbal_Neutral': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Changing the subject might avoid conflict, {{player.name}}, but it doesn\'t address the underlying bias."',
 		'next',
 		'alex "Let\'s try a more direct approach."',
@@ -296,10 +313,10 @@ monogatari.script ({
 
 	'Behavioral': [
 		'show scene breakroom with fadeIn',
-		'show character coworker with fadeIn',
+		'show character coworker default at center with fadeIn',
 		'coworker "Oh, let me show you how to use the coffee machine. I know technology can be tricky for older employees."',
 		'next',
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "This is a behavioral microaggression based on age stereotypes."',
 		'next',
 		{
@@ -321,7 +338,7 @@ monogatari.script ({
 	],
 
 	'Behavioral_Good': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Great response, {{player.name}}! Challenging assumptions professionally helps educate others."',
 		'next',
 		'alex "You could say: \'I appreciate your offer to help, but I\'m quite comfortable with technology. Age doesn\'t determine technical ability.\'"',
@@ -331,7 +348,7 @@ monogatari.script ({
 	],
 
 	'Behavioral_Bad': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "While it\'s natural to feel defensive, {{player.name}}, reacting with anger might escalate the situation."',
 		'next',
 		'alex "Let\'s try a more constructive approach."',
@@ -339,7 +356,7 @@ monogatari.script ({
 	],
 
 	'Behavioral_Neutral': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Silently complying might seem easier, {{player.name}}, but it allows the stereotype to persist."',
 		'next',
 		'alex "Let\'s try a more assertive approach."',
@@ -348,10 +365,10 @@ monogatari.script ({
 
 	'Institutional': [
 		'show scene office with fadeIn',
-		'show character manager with fadeIn',
+		'show character manager default at center with fadeIn',
 		'manager "The dress code requires \'professional hair styles\' but doesn\'t specify what that means. Some employees feel it unfairly targets their natural hair."',
 		'next',
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "This is an institutional microaggression embedded in policy."',
 		'next',
 		{
@@ -373,7 +390,7 @@ monogatari.script ({
 	],
 
 	'Institutional_Good': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Excellent approach, {{player.name}}! Addressing institutional microaggressions requires systemic change."',
 		'next',
 		'alex "You might suggest: \'Let\'s review and update the policy to be more inclusive and specific about what constitutes professional attire, ensuring it respects all cultural expressions.\'"',
@@ -383,7 +400,7 @@ monogatari.script ({
 	],
 
 	'Institutional_Bad': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "While defending existing policy might seem loyal, {{player.name}}, it can perpetuate exclusionary practices."',
 		'next',
 		'alex "Let\'s try a more inclusive approach."',
@@ -391,7 +408,7 @@ monogatari.script ({
 	],
 
 	'Institutional_Neutral': [
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Remaining neutral might seem safe, {{player.name}}, but it doesn\'t address the systemic issue."',
 		'next',
 		'alex "Let\'s try a more proactive approach."',
@@ -400,7 +417,7 @@ monogatari.script ({
 
 	'Next_Choice': [
 		'show scene office with fadeIn',
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Would you like to explore another type of microaggression or review what we\'ve learned?"',
 		'next',
 		{
@@ -431,7 +448,7 @@ monogatari.script ({
 
 	'Conclusion': [
 		'show scene office with fadeIn',
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Great work today, {{player.name}}! You\'ve learned about different types of microaggressions and how to address them constructively."',
 		'next',
 		'alex "Remember these key points:"',
@@ -460,7 +477,7 @@ monogatari.script ({
 
 	'End': [
 		'show scene office with fadeIn',
-		'show character alex with fadeIn',
+		'show character alex default at center with fadeIn',
 		'alex "Thank you for participating in this learning experience, {{player.name}}. Remember, addressing microaggressions is an ongoing process."',
 		'next',
 		'alex "Keep practicing these skills in your daily life to create more inclusive environments."',
