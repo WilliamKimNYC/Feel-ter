@@ -755,19 +755,19 @@ monogatari.script ({
 		'next',
 		{
 			'Choice': {
-				'You\'re so articulate for someone from your background!': {
+				'articulate': {
 					'Text': 'You\'re so articulate for someone from your background!',
 					'Do': 'jump Quiz_Feedback_4_Correct'
 				},
-				'Please submit your report by Friday.': {
+				'submitReport': {
 					'Text': 'Please submit your report by Friday.',
 					'Do': 'jump Quiz_Feedback_4_Incorrect'
 				},
-				'Good morning, how are you?': {
+				'goodMorning': {
 					'Text': 'Good morning, how are you?',
 					'Do': 'jump Quiz_Feedback_4_Incorrect'
 				},
-				'The meeting starts at 2 PM.': {
+				'meetingTime': {
 					'Text': 'The meeting starts at 2 PM.',
 					'Do': 'jump Quiz_Feedback_4_Incorrect'
 				}
