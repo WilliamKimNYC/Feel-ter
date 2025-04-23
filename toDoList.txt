@@ -10,3 +10,8 @@
 - fix "review" after finishing quiz
 - write the actual scenarios
 - finish toDoList
+- Make home page "less plain"
+
+- set branding/how we will present the main characters
+- audio
+
