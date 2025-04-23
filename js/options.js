@@ -99,7 +99,7 @@ monogatari.settings({
 	// the holder for the other asset specific directories, this directories are
 	// used when retrieving the files on the game.
 	'AssetsPath': {
-		'root': 'assets',
+		'root': 'static/visual-novel/assets',
 		'characters': 'characters',
 		'icons': 'icons',
 		'images': 'images',
