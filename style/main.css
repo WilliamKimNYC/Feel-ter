@@ -19,11 +19,9 @@
 
 /* Global Styles */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
+    --accent-color: #f684a7;
     --text-color: #2c3e50;
-    --background-color: #f5f5f5;
+    --base-color: #fff2cc;
     --navbar-height: 60px;
 }
 
@@ -31,13 +29,13 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--base-color);
+    color: var(--accent-color);
 }
 
 /* Navigation */
 .navbar {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: fixed;
@@ -103,7 +101,7 @@ body {
 
 .homepage-content h1 {
     font-size: 3rem;
-    color: var(--primary-color);
+    color: var(--text-color);
     margin-bottom: 1.5rem;
 }
 
@@ -137,12 +135,12 @@ body {
 
 .feature-card i {
     font-size: 2.5rem;
-    color: var(--secondary-color);
+    color: var(--accent-color);
     margin-bottom: 1rem;
 }
 
 .feature-card h3 {
-    color: var(--primary-color);
+    color: var(--accent-color);
     margin-bottom: 1rem;
 }
 
@@ -159,7 +157,7 @@ body {
 .cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -169,7 +167,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #2980b9;
+
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
@@ -218,7 +216,7 @@ button:hover {
 
 /* Main Menu Buttons Styling */
 [data-screen="main"] button {
-    background-color: rgba(44, 62, 80, 0.8);
+    background-color: var(--accent-color);
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -229,7 +227,7 @@ button:hover {
 }
 
 [data-screen="main"] button:hover {
-    background-color: rgba(52, 152, 219, 0.9);
+    background-color: var(--accent-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
@@ -428,7 +426,7 @@ input[type=range]::-ms-fill-upper {
 }
 
 .fullscreen-button button {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: white;
     border: none;
     border-radius: 50%;
@@ -449,3 +447,4 @@ input[type=range]::-ms-fill-upper {
 .fullscreen-button i {
     font-size: 1.2rem;
 }
+
