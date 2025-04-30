@@ -1,16 +1,27 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %}Understanding Microaggressions -
+Interactive Learning{% endblock %} {% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <div class="homepage-content">
+        <h1 class="text-start">👀 Not Everything Hurts Loud...</h1>
+        <h3 class="span-xl">
+          Some words linger. <br />Some glances jab. <br />Some "jokes"… just
+          aren't. <br /><br />
+          Don't let microaggressions fly under the radar, learn how to
+          <span class="underline">recognise and respond.</span><br />
+        </h3>
+        <!--Play through an interactive visual novel to recognize
+          microaggressions, microassaults, and microinsults. Practice how to
+          respond and build more inclusive spaces.-->
 
-{% block title %}Understanding Microaggressions - Interactive Learning{% endblock %}
-
-{% block content %}
-<div class="homepage-content">
-    <h1>Understanding Microaggressions</h1>
-    <p>At Feelter, we help you understand your <i>feelings</i> and <i>filter</i> your reactions thoughtfully. 
-    Play through an interactive visual novel to recognize microaggressions, microassaults, and microinsults. 
-    Practice how to respond and build more inclusive spaces.</p>
-
-    <div class="cta-buttons">
-        <a href="{{ url_for('visual_novel') }}" class="cta-button">Start Learning</a>
+        <div class="text-end">
+          <a href="{{ url_for('visual_novel') }}" class="cta-button"
+            >Start Learning</a
+          >
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
