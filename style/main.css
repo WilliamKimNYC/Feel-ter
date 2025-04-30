@@ -267,11 +267,94 @@ button:hover {
 **/
 
 /* Choice Buttons style */
-[data-component="choice-container"] button {
+[data-component="choice-container"] {
+    position: absolute;
+    top: min(40%, calc(100vh - 250px));
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: min(600px, 90vw);
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.9);
+    padding: clamp(10px, 2vw, 20px);
+    border-radius: clamp(5px, 1vw, 10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Choice Button Style on Hover */
+[data-component="choice-container"] button {
+    display: block;
+    width: 100%;
+    margin: clamp(5px, 1vw, 10px) 0;
+    padding: clamp(10px, 2vw, 15px);
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: clamp(3px, 0.8vw, 5px);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: left;
+    line-height: 1.4;
+}
+
 [data-component="choice-container"] button:hover {
+    background: #e5738e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Add responsive styles for different screen sizes */
+@media screen and (max-height: 600px) {
+    [data-component="choice-container"] {
+        top: 35%;
+        max-height: 60vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    [data-component="choice-container"] {
+        width: 95%;
+        padding: 10px;
+        max-height: 70vh;
+    }
+
+    [data-component="choice-container"] button {
+        font-size: 0.9rem;
+        padding: 10px;
+        margin: 5px 0;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    [data-component="choice-container"] {
+        width: 85%;
+        padding: 15px;
+        max-height: 65vh;
+    }
+
+    [data-component="choice-container"] button {
+        font-size: 1rem;
+        padding: 12px;
+        margin: 8px 0;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    [data-component="choice-container"] {
+        width: 80%;
+        padding: 20px;
+        max-height: 60vh;
+    }
+
+    [data-component="choice-container"] button {
+        font-size: 1.1rem;
+        padding: 15px;
+        margin: 10px 0;
+    }
 }
 
 /* Text Box styling */
