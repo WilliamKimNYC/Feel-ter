@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Space+Grotesk:wght@300..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Space+Grotesk:wght@300..700&family=Tagesschrift&display=swap"
       rel="stylesheet"
     />
     <!-- Bootstrap 5 CSS -->
@@ -25,15 +25,17 @@
       href="{{ url_for('serve_style', filename='main.css') }}"
     />
 
+    <!-- J-Query -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{{ url_for('static', filename='js/fade-transition.js') }}"></script>
+
     {% block extra_css %}{% endblock %}
   </head>
-  <body>
+  <body class="align-items-center">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid justify-content-between">
         <!-- Logo -->
-        <a href="{{ url_for('homepage') }}" class="navbar-brand"
-          >Dear Feelter,</a
-        >
+        <a href="{{ url_for('homepage') }}" class="navbar-brand">Feel-ter</a>
 
         <!-- Right menu (Quiz - Locked) -->
 
@@ -54,8 +56,7 @@
       </div>
     </nav>
 
-    <main class="content">{% block content %}{% endblock %}</main>
-
+    <div id="page-wrapper">{% block content %}{% endblock %}</div>
     {% block extra_js %}{% endblock %}
   </body>
 </html>

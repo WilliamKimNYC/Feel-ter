@@ -1,19 +1,22 @@
 {% extends "base.html" %} {% block title %}Understanding Microaggressions -
 Interactive Learning{% endblock %} {% block content %}
-<div class="container">
+
+<div
+  class="container-fluid min-vh-100 d-flex justify-content-center align-items-center"
+>
   <div class="row justify-content-center">
-    <div class="col-12 col-md-10 col-lg-8">
-      <div class="homepage-content">
-        <h1 class="text-start">👀 Not Everything Hurts Loud...</h1>
-        <h3 class="span-xl">
-          Some words linger. <br />Some glances jab. <br />Some "jokes"… just
-          aren't. <br /><br />
-          Don't let microaggressions fly under the radar, learn how to
-          <i>recognise and respond</i>.<br/>
+    <div class="col-12 col-md-12 col-lg-12">
+      <div class="homepage-content text-center">
+        <h1 class="text-start mb-5">Not Everything Hurts Loud...</h1>
+        <h3 class="span-xl mb-5">
+          Some words linger. <br />Some glances jab. <br />Some “jokes"… just
+          aren't.
         </h3>
-        <!--Play through an interactive visual novel to recognize
-          microaggressions, microassaults, and microinsults. Practice how to
-          respond and build more inclusive spaces.-->
+        <h3 class="span-xl mb-5">
+          Don't let <span class="fw-bolder">microaggressions</span> fly under
+          the radar, learn how to <br />
+          <i>recognise and respond</i>.
+        </h3>
 
         <div class="text-end">
           <a href="{{ url_for('visual_novel') }}" class="cta-button"
@@ -24,4 +27,5 @@ Interactive Learning{% endblock %} {% block content %}
     </div>
   </div>
 </div>
+
 {% endblock %}

@@ -19,20 +19,22 @@
 
 /* Global Styles */
 :root {
-  --accent-color: #f684a7;
+  --accent-color: #7382f0;
   --text-color: #2c3e50;
-  --base-color: #f7f0e1;
+  --base-color: #f1efdd;
   --navbar-height: 60px;
 }
 
 h1,
 h2 {
-  font-family: "Pixelify Sans", sans-serif;
+  font-family: "Tagesschrift", sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
+  max-height: 100vh;
   font-family: "Space Grotesk", sans-serif;
   background-color: var(--base-color);
   color: var(--accent-color);
@@ -46,81 +48,42 @@ body {
 /* Navigation */
 .navbar {
   background-color: var(--accent-color);
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  padding-left: 1rem;
   z-index: 1000;
 }
 
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-logo {
+.navbar a {
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.nav-menu {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-menu li {
-  margin-left: 2rem;
-}
-
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   transition: color 0.3s ease;
 }
 
-.nav-menu a:hover {
+.navbar a:hover {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Content */
-.content {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  margin-top: calc(var(--navbar-height) + 2rem);
+/*fade out*/
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
-/* Homepage */
-.homepage-content {
-  text-align: left;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 0;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
+/* Homepage Content */
 .homepage-content h1 {
+  padding-top: calc(var(--navbar-height));
   font-size: 3rem;
   color: var(--text-color);
-  margin-bottom: 1.5rem;
 }
 
 .span-xl {
   font-size: 1.5rem;
   color: var(--text-color);
-  margin-bottom: 3rem;
   max-width: 800px;
 }
 
@@ -187,18 +150,6 @@ body {
   height: calc(100vh - var(--navbar-height));
   position: relative;
   margin-top: var(--navbar-height);
-}
-
-/* General Style */
-body {
-}
-
-/* Simple Button styles*/
-button {
-}
-
-/* Simple Button Style on Hover */
-button:hover {
 }
 
 /* General Styling for Menu Screens */
@@ -268,93 +219,93 @@ button:hover {
 
 /* Choice Buttons style */
 [data-component="choice-container"] {
-    position: absolute;
-    top: min(40%, calc(100vh - 250px));
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: min(600px, 90vw);
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.9);
-    padding: clamp(10px, 2vw, 20px);
-    border-radius: clamp(5px, 1vw, 10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: min(40%, calc(100vh - 250px));
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: min(600px, 90vw);
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.9);
+  padding: clamp(10px, 2vw, 20px);
+  border-radius: clamp(5px, 1vw, 10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 [data-component="choice-container"] button {
-    display: block;
-    width: 100%;
-    margin: clamp(5px, 1vw, 10px) 0;
-    padding: clamp(10px, 2vw, 15px);
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: clamp(3px, 0.8vw, 5px);
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: normal;
-    word-wrap: break-word;
-    text-align: left;
-    line-height: 1.4;
+  display: block;
+  width: 100%;
+  margin: clamp(5px, 1vw, 10px) 0;
+  padding: clamp(10px, 2vw, 15px);
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: clamp(3px, 0.8vw, 5px);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: normal;
+  word-wrap: break-word;
+  text-align: left;
+  line-height: 1.4;
 }
 
 [data-component="choice-container"] button:hover {
-    background: #e5738e;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: #e5738e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Add responsive styles for different screen sizes */
 @media screen and (max-height: 600px) {
-    [data-component="choice-container"] {
-        top: 35%;
-        max-height: 60vh;
-    }
+  [data-component="choice-container"] {
+    top: 35%;
+    max-height: 60vh;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    [data-component="choice-container"] {
-        width: 95%;
-        padding: 10px;
-        max-height: 70vh;
-    }
+  [data-component="choice-container"] {
+    width: 95%;
+    padding: 10px;
+    max-height: 70vh;
+  }
 
-    [data-component="choice-container"] button {
-        font-size: 0.9rem;
-        padding: 10px;
-        margin: 5px 0;
-    }
+  [data-component="choice-container"] button {
+    font-size: 0.9rem;
+    padding: 10px;
+    margin: 5px 0;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
-    [data-component="choice-container"] {
-        width: 85%;
-        padding: 15px;
-        max-height: 65vh;
-    }
+  [data-component="choice-container"] {
+    width: 85%;
+    padding: 15px;
+    max-height: 65vh;
+  }
 
-    [data-component="choice-container"] button {
-        font-size: 1rem;
-        padding: 12px;
-        margin: 8px 0;
-    }
+  [data-component="choice-container"] button {
+    font-size: 1rem;
+    padding: 12px;
+    margin: 8px 0;
+  }
 }
 
 @media screen and (min-width: 769px) {
-    [data-component="choice-container"] {
-        width: 80%;
-        padding: 20px;
-        max-height: 60vh;
-    }
+  [data-component="choice-container"] {
+    width: 80%;
+    padding: 20px;
+    max-height: 60vh;
+  }
 
-    [data-component="choice-container"] button {
-        font-size: 1.1rem;
-        padding: 15px;
-        margin: 10px 0;
-    }
+  [data-component="choice-container"] button {
+    font-size: 1.1rem;
+    padding: 15px;
+    margin: 10px 0;
+  }
 }
 
 /* Text Box styling */
