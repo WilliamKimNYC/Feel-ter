@@ -52,7 +52,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  padding-left: 1rem;
+  padding: 0.8rem 1rem;
   z-index: 1000;
 }
 
@@ -60,7 +60,17 @@ body {
   color: white;
   text-decoration: none;
   font-weight: 400;
+  font-size: 1.1rem;
   transition: color 0.3s ease;
+}
+
+.navbar-brand {
+  font-size: 1.3rem !important;
+  font-weight: 500 !important;
+}
+
+.navbar .nav-link {
+  font-size: 1.1rem !important;
 }
 
 .navbar a:hover {
@@ -454,4 +464,23 @@ input[type="range"]::-ms-fill-upper {
 
 .fullscreen-button i {
   font-size: 1.2rem;
+}
+
+/* Fade Text Animation */
+.fade-text-container {
+  position: relative;
+  height: 2em;
+  overflow: hidden;
+}
+
+.fade-text {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  margin: 0;
+}
+
+.fade-text.active {
+  opacity: 1;
 }
