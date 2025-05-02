@@ -36,3 +36,10 @@ $_ready (() => {
 
 	});
 });
+
+const params = new URLSearchParams(window.location.search);
+const chapter = params.get("chapter");
+
+if (chapter === "quiz") {
+    monogatari.label('Chapter_Quiz');
+}
