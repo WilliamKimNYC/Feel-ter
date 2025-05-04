@@ -1,10 +1,10 @@
 - come up with name
+- update title
 - update favicon
 - set branding/how we will present the main characters
 - audio
 - create assets
-    - asset 1
-    - asset 2
+
 
 - allow user to navigate directly to quiz
 - fix "review" after finishing quiz

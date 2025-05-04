@@ -1,5 +1,4 @@
-{% extends "base.html" %} {% block title %}Understanding Microaggressions -
-Interactive Learning{% endblock %} {% block content %}
+{% extends "base.html" %} {% block title %}Feel-ter{% endblock %} {% block content %}
 
 <div
   class="container-fluid min-vh-100 d-flex justify-content-center align-items-center"
@@ -7,18 +6,17 @@ Interactive Learning{% endblock %} {% block content %}
   <div class="row justify-content-center">
     <div class="col-12 col-md-12 col-lg-12">
       <div class="homepage-content text-center">
-        <h1 class="text-start mb-5">Not Everything Hurts Loud...</h1>
+        <h1 class="mb-5">Not Everything Hurts Loud...</h1>
+        <div class="fade-text-container mb-5">
+          <h3 class="span-xl fade-text active">Some words linger.</h3>
+          <h3 class="span-xl fade-text">Some glances jab.</h3>
+          <h3 class="span-xl fade-text">Some “jokes” don’t feel like jokes at all.</h3>
+        </div>
         <h3 class="span-xl mb-5">
-          Some words linger. <br />Some glances jab. <br />Some “jokes"… just
-          aren't.
+          <span class="fw-bolder">Feel-ter</span> is a space to <i>feel</i> and <i>filter</i> what you hear. <br />
+          Learn how to recognize microaggressions, understand why they hurt, and figure out what to say — or not say — next.
         </h3>
-        <h3 class="span-xl mb-5">
-          Don't let <span class="fw-bolder">microaggressions</span> fly under
-          the radar, learn how to <br />
-          <i>recognise and respond</i>.
-        </h3>
-
-        <div class="text-end">
+        <div class="text-center">
           <a href="{{ url_for('visual_novel') }}" class="cta-button"
             >Start Learning</a
           >
