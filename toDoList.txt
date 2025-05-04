@@ -13,5 +13,4 @@
 - Make home page "less plain"
 
 - set branding/how we will present the main characters
-- audio
 
