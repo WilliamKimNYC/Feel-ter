@@ -1,8 +1,5 @@
-- come up with name
 - update title
 - update favicon
-- set branding/how we will present the main characters
-- audio
 - create assets
 
 
@@ -11,6 +8,4 @@
 - write the actual scenarios
 - finish toDoList
 - Make home page "less plain"
-
-- set branding/how we will present the main characters
 

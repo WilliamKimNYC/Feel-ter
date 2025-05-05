@@ -53,7 +53,7 @@ body {
   left: 0;
   right: 0;
   padding: 0.8rem 1rem;
-  z-index: 1000;
+  z-index: 1100;
 }
 
 .navbar a {
@@ -75,6 +75,38 @@ body {
 
 .navbar a:hover {
   color: rgba(255, 255, 255, 0.8);
+}
+
+/* Limit dropdown width and prevent overflow */
+.navbar .dropdown-menu {
+  min-width: 200px;
+  max-width: 500px;
+  padding: 0.5rem 0;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  left: auto !important; /* prevents Bootstrap from pushing it left too far */
+  right: 0; /* aligns it to the right edge of the Learn link */
+}
+@media (max-width: 576px) {
+  .navbar .dropdown-menu {
+    max-width: 90vw;
+    right: 1rem;
+    left: auto;
+  }
+}
+
+.navbar .dropdown-menu .dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: var(--accent-color);
+  color: white;
 }
 
 /*fade out*/
@@ -158,8 +190,9 @@ body {
 #monogatari {
   width: 100%;
   height: calc(100vh - var(--navbar-height));
-  position: relative;
+  position: relative; /* don't use absolute here */
   margin-top: var(--navbar-height);
+  z-index: 1; /* optional: explicitly keep it below navbar */
 }
 
 /* General Styling for Menu Screens */
