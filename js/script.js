@@ -78,7 +78,8 @@ monogatari.characters({
     color: "#3498db",
     directory: "alex",
     sprites: {
-      default: "default.png",
+      default: "neutral.png",
+      greet: "greet.png",
       explaining: "explaining.png",
       concerned: "concerned.png",
       happy: "happy.png",
@@ -137,11 +138,11 @@ monogatari.script({
 
   Intro: [
     "play music main_theme with loop fade 2",
-    "show character alex default at center with fadeIn",
+    "show character alex greet at center with fadeIn",
     "play voice alex",
     "alex Welcome {{player.name}}! I'm Alex, and I'll be your guide through this interactive learning experience about microaggressions.",
     "next",
-    "show character alex excited at center with fadeIn",
+    "show character alex explaining at center with fadeIn",
     "play voice alex",
     "alex There are three main types I want you to know about:",
     "next",
@@ -154,6 +155,7 @@ monogatari.script({
     "play voice alex",
     "alex Microinsults are sneaky insults hiding inside what sounds like praise.",
     "next",
+    "show character alex default at center with fadeIn",
     "play voice alex",
     "alex Let's dive in and see what they look like.",
     "jump Chapter1",
