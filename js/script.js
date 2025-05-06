@@ -545,6 +545,36 @@ monogatari.script({
     "jump Ending",
   ],
 
+  PostQuizEnding: [
+  "play voice alex",
+  'alex "Today you learned how to spot microaggressions, microassaults, and microinsults — and why they matter."',
+  "next",
+  "play voice alex",
+  'alex "Even small words can carry big messages."',
+  "next",
+  "play voice alex",
+  "alex \"It's okay to notice them. It's okay to respond.\"",
+  "next",
+  "play voice alex",
+  'alex "You deserve to be seen, heard, and respected — always."',
+  "next",
+  {
+    Function: {
+      Apply: function () {
+        const score = monogatari.storage('quizScore') || 0;
+        return `You got ${score} out of 5 questions correct!`;
+      },
+      Return: function (line) {
+        return line;
+      },
+    },
+  },
+  "next",
+  "Thank you for playing!",
+  "end"
+],
+
+
   Ending: [
     "stop music with fade 1",
     "show scene ending with fadeIn",
@@ -589,7 +619,11 @@ function generateQuizScenes(quizData) {
     const choices = {};
     q.options.forEach((opt, i) => {
       const feedbackLabel = `${label}_Feedback_${i}`;
-      choices[opt.text] = { Text: opt.text, Do: `jump ${feedbackLabel}` };
+      choices[`option_${index}_${i}`] = {
+        Text: opt.text,
+        Do: `jump ${feedbackLabel}`
+      };
+      
 
       scriptBlocks[feedbackLabel] = [
         `alex "${opt.isCorrect ? q.feedback.correct : q.feedback.incorrect}"`,
@@ -606,7 +640,7 @@ function generateQuizScenes(quizData) {
   // Add ending label
   scriptBlocks['Dynamic_Quiz_End'] = [
     'alex "Great job completing the quiz!"',
-    'jump Ending'
+    'jump PostQuizEnding'
   ];
 
   monogatari.script(scriptBlocks);
