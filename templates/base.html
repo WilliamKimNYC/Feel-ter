@@ -96,6 +96,9 @@
     </nav>
 
     <div id="page-wrapper">{% block content %}{% endblock %}</div>
-    {% block extra_js %}{% endblock %}
+    {% block extra_js %}
+    <script src="{{ url_for('static', filename='js/quiz-data.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% endblock %}
   </body>
 </html>

@@ -43,3 +43,4 @@ const chapter = params.get("chapter");
 if (chapter === "quiz") {
     monogatari.label('Chapter_Quiz');
 }
+

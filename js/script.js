@@ -554,6 +554,11 @@ monogatari.script({
     'alex "You made it through!"',
     "next",
     "play voice alex",
+    'alex "Before we wrap up, let us see what you learned."',
+    "next",
+    "jump Dynamic_Quiz_1",
+    "next",
+    "play voice alex",
     'alex "Today you learned how to spot microaggressions, microassaults, and microinsults — and why they matter."',
     "next",
     "play voice alex",
@@ -569,3 +574,44 @@ monogatari.script({
     "end",
   ],
 });
+
+// === Load Quiz Data Dynamically ===
+function generateQuizScenes(quizData) {
+  monogatari.on("start", () => {
+    generateQuizScenes(quizData);
+  });
+  
+  const scriptBlocks = {};
+  quizData.questions.forEach((q, index) => {
+    const label = `Dynamic_Quiz_${index + 1}`;
+    const nextLabel = index + 1 < quizData.questions.length ? `Dynamic_Quiz_${index + 2}` : `Dynamic_Quiz_End`;
+
+    const choices = {};
+    q.options.forEach((opt, i) => {
+      const feedbackLabel = `${label}_Feedback_${i}`;
+      choices[opt.text] = { Text: opt.text, Do: `jump ${feedbackLabel}` };
+
+      scriptBlocks[feedbackLabel] = [
+        `alex "${opt.isCorrect ? q.feedback.correct : q.feedback.incorrect}"`,
+        `jump ${nextLabel}`
+      ];
+    });
+
+    scriptBlocks[label] = [
+      `alex "${q.text}"`,
+      { Choice: choices }
+    ];
+  });
+
+  // Add ending label
+  scriptBlocks['Dynamic_Quiz_End'] = [
+    'alex "Great job completing the quiz!"',
+    'jump Ending'
+  ];
+
+  monogatari.script(scriptBlocks);
+}
+
+// Load the quiz data and generate Monogatari script from it
+generateQuizScenes(quizData);
+
