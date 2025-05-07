@@ -213,6 +213,20 @@ body {
   z-index: 1; /* optional: explicitly keep it below navbar */
 }
 
+/* Dialogue Styles */
+
+.monogatari-textbox {
+  color: #000000b0;
+}
+.inner-thought {
+  color: #fff;
+  padding: 1em 1.5em;
+  margin: 1em auto;
+  border-radius: 16px;
+  font-style: italic;
+  text-align: center;
+}
+
 /* General Styling for Menu Screens */
 [data-screen] {
 }
@@ -535,4 +549,3 @@ input[type="range"]::-ms-fill-upper {
 .fade-text.active {
   opacity: 1;
 }
-

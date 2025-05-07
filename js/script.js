@@ -19,6 +19,11 @@ monogatari.action("notification").notifications({
     body: "An interactive learning experience about recognizing and addressing microaggressions",
     icon: "",
   },
+  Thought: {
+    title: "",
+    body: "<div class='inner-thought'>I’ve spoken English my whole life... Why do people always ask me that?</div>",
+    icon: "",
+  },
 });
 
 // Define the Particles JS Configurations used in the game
@@ -73,9 +78,13 @@ monogatari.assets("scenes", {
 
 // Define the Characters
 monogatari.characters({
+  player: {
+    name: "{{player.name}}",
+    color: "#f39c12",
+  },
   alex: {
     name: "Alex",
-    color: "#3498db",
+    color: "#ffb700",
     directory: "alex",
     sprites: {
       default: "neutral.png",
@@ -88,7 +97,7 @@ monogatari.characters({
   },
   classmate: {
     name: "Classmate",
-    color: "#2c3e50",
+    color: "#00d5ff",
     directory: "classmate",
     sprites: {
       default: "default.png",
@@ -96,7 +105,7 @@ monogatari.characters({
   },
   manager: {
     name: "Manager",
-    color: "#e74c3c",
+    color: "#bd32cc",
     directory: "manager",
     sprites: {
       default: "default.png",
@@ -179,7 +188,7 @@ monogatari.script({
     "play voice others",
     "classmate Wow, your English is so good! Where are you really from? ",
     "next",
-    "[Internal thought]: I've spoken English my whole life... Why do people always ask me that?",
+    "<div class='inner-thought'>I’ve spoken English my whole life... Why do people always ask me that?</div>",
     "next",
     {
       Choice: {
@@ -315,12 +324,12 @@ monogatari.script({
     "play voice others",
     "manager We need someone who fits the vibe here... if you know what I mean.",
     "next",
-    "[Internal thought]: Feels like they're saying I don't fit in — but they won't say it directly.",
+    "<div class='inner-thought'>Feels like they're saying I don't fit in — but they won't say it directly.</div>",
     "next",
     {
       Choice: {
         "Ask about vibe": {
-          Text: "Ask, \"What do you mean by 'vibe'?\"",
+          Text: 'Ask, "What do you mean by ‘vibe\'?"',
           Do: "jump Chapter2_Feedback1",
         },
         "Stay quiet": {
@@ -351,7 +360,7 @@ monogatari.script({
 
   Chapter2_Feedback2: [
     "play voice player",
-    'player "..."',
+    "player ...",
     "show scene cafe with fadeIn",
     "show character manager default at center with fadeIn",
     "next",
@@ -372,7 +381,7 @@ monogatari.script({
 
   Chapter2_Feedback3: [
     "play voice player",
-    'player "..."',
+    "player ...",
     "show scene cafe with fadeIn",
     "show character manager default at center with fadeIn",
     "next",
@@ -446,7 +455,7 @@ monogatari.script({
     "play voice others",
     "classmate Wow, I didn't expect you to be this good!",
     "next",
-    '[Internal thought]: "Wait... why wouldn\'t you expect that?"',
+    "<div class='inner-thought'>Wait... why wouldn't you expect that?</div>",
     "next",
     {
       Choice: {
@@ -455,7 +464,7 @@ monogatari.script({
           Do: "jump Chapter3_Feedback1",
         },
         "Ask why": {
-          Text: 'Ask, "Why wouldn\'t you expect that?"',
+          Text: "Ask, “Why wouldn't you expect that?\"",
           Do: "jump Chapter3_Feedback2",
         },
         "Laugh it off": {
@@ -468,7 +477,7 @@ monogatari.script({
 
   Chapter3_Feedback1: [
     "play voice player",
-    'player "Thanks..."',
+    "player Thanks...",
     "show scene classroom with fadeIn",
     "show character classmate default at center with fadeIn",
     "next",
