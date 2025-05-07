@@ -68,8 +68,9 @@ monogatari.assets("scenes", {
   "main-menu": "main-menu-bg.jpg",
   study_room: "study-room.jpg",
   cafe: "cafe.jpg",
-  classroom: "classroom.jpg",
+  classroom: "gym.jpeg",
   ending: "ending.jpg",
+  quiz_scene: "quiz.jpg",
 });
 
 // Define the Characters
@@ -108,7 +109,6 @@ monogatari.characters({
     },
   },
 });
-
 
 monogatari.script({
   // The game starts here.
@@ -207,7 +207,7 @@ monogatari.script({
 
   Chapter1_Feedback1: [
     "play voice player",
-    "player ...",
+    "player <i>Smiles awkwardly and change the topic.</i>",
     "show scene study_room with fadeIn",
     "show character classmate default at center with fadeIn",
     "next",
@@ -260,7 +260,7 @@ monogatari.script({
   ],
 
   Chapter1_Quiz: [
-    "show character alex default at center with fadeIn",
+    "show character alex serious at center with fadeIn",
     "play voice alex",
     "alex Why is this considered a microaggression?",
     "next",
@@ -272,17 +272,19 @@ monogatari.script({
         },
         "Friendly compliment": {
           Text: "It was just a friendly compliment",
-          Do: "jump Chapter1_Quiz_Incorrect",
+          Do: "jump Chapter1_Quiz_Incorrect1",
         },
         "Trying to be funny": {
           Text: "They were trying to be funny",
-          Do: "jump Chapter1_Quiz_Incorrect",
+          Do: "jump Chapter1_Quiz_Incorrect2",
         },
       },
     },
   ],
 
   Chapter1_Quiz_Correct: [
+    "play voice player",
+    "player It questioned your belonging based on stereotypes.",
     "show character alex happy at center with fadeIn",
     "play voice alex",
     "alex Exactly!",
@@ -294,7 +296,27 @@ monogatari.script({
     "jump Chapter2",
   ],
 
-  Chapter1_Quiz_Incorrect: [
+  Chapter1_Quiz_Incorrect1: [
+    "play voice player",
+    "player It was just a friendly compliment.",
+    "show character alex default at center with fadeIn",
+    "play voice alex",
+    "alex Almost.",
+    "next",
+    "show character alex serious at center with fadeIn",
+    "play voice alex",
+    "alex Even when words sound friendly or funny, they can still carry hidden assumptions.",
+    "next",
+    "show character alex explaining at center with fadeIn",
+    "play voice alex",
+    "alex The key is: did the comment make you feel 'othered' or different based on your identity?",
+    "next",
+    "jump Chapter2",
+  ],
+
+  Chapter1_Quiz_Incorrect2: [
+    "play voice player",
+    "player They were trying to be funny.",
     "show character alex default at center with fadeIn",
     "play voice alex",
     "alex Almost.",
@@ -326,7 +348,7 @@ monogatari.script({
     {
       Choice: {
         "Ask about vibe": {
-          Text: 'Ask, "What do you mean by ‘vibe\'?"',
+          Text: "Ask: “What do you mean by ‘vibe’?”",
           Do: "jump Chapter2_Feedback1",
         },
         "Stay quiet": {
@@ -343,7 +365,7 @@ monogatari.script({
 
   Chapter2_Feedback1: [
     "play voice player",
-    "player What do you mean by 'vibe'?",
+    "player What do you mean by ‘vibe'?",
     "show scene cafe with fadeIn",
     "show character manager default at center with fadeIn",
     "next",
@@ -357,7 +379,7 @@ monogatari.script({
 
   Chapter2_Feedback2: [
     "play voice player",
-    "player ...",
+    "player <i>Assumes it's about your clothes and stay quiet</i>",
     "show scene cafe with fadeIn",
     "show character manager default at center with fadeIn",
     "next",
@@ -378,7 +400,7 @@ monogatari.script({
 
   Chapter2_Feedback3: [
     "play voice player",
-    "player ...",
+    "player <i>Leaves without saying anything.</i>",
     "show scene cafe with fadeIn",
     "show character manager default at center with fadeIn",
     "next",
@@ -407,17 +429,19 @@ monogatari.script({
         },
         Misunderstanding: {
           Text: "It was just a misunderstanding",
-          Do: "jump Chapter2_Quiz_Incorrect",
+          Do: "jump Chapter2_Quiz_Incorrect1",
         },
         "Being funny": {
-          Text: "They were trying to be funny",
-          Do: "jump Chapter2_Quiz_Incorrect",
+          Text: "It's actually a microinvalidation.",
+          Do: "jump Chapter2_Quiz_Incorrect2",
         },
       },
     },
   ],
 
   Chapter2_Quiz_Correct: [
+    "play voice player",
+    "player It was more direct and intentional.",
     "show character alex happy at center with fadeIn",
     "play voice alex",
     "alex Exactly!",
@@ -429,7 +453,9 @@ monogatari.script({
     "jump Chapter3",
   ],
 
-  Chapter2_Quiz_Incorrect: [
+  Chapter2_Quiz_Incorrect1: [
+    "play voice player",
+    "player It was just a misunderstanding.",
     "show character alex default at center with fadeIn",
     "play voice alex",
     "alex Not quite.",
@@ -437,6 +463,21 @@ monogatari.script({
     "show character alex explaining at center with fadeIn",
     "play voice alex",
     "alex Microassaults aren't accidents — they usually carry some intent, even if the person hides it under vague words.",
+    "next",
+    "jump Chapter3",
+  ],
+
+  Chapter2_Quiz_Incorrect2: [
+    "play voice player",
+    "player It's actually a microinvalidation.",
+    "show character alex default at center with fadeIn",
+    "play voice alex",
+    "alex It could totally be depending on how you felt!",
+    "next",
+    "show character alex explaining at center with fadeIn",
+    "play voice alex",
+    "alex What makes microassaults differ from microinvalidations is that they often aren't accidents.",
+    "alex They usually carry some intent, even if the person hides it under vague words.",
     "next",
     "jump Chapter3",
   ],
@@ -574,6 +615,7 @@ monogatari.script({
   ],
 
   PostQuizEnding: [
+    "show scene ending with fadeIn",
     "show character alex default at center with fadeIn",
     "play voice alex",
     "alex Today you learned how to spot microaggressions, microassaults, and microinsults — and why they matter.",
@@ -662,7 +704,7 @@ function generateQuizScenes(quizData) {
       };
 
       scriptBlocks[feedbackLabel] = [
-        "show scene classroom with fadeIn",
+        "show scene quiz_scene with fadeIn",
         "show character alex default at center with fadeIn",
         `alex "${opt.isCorrect ? q.feedback.correct : q.feedback.incorrect}"`,
         `jump ${nextLabel}`,
@@ -670,7 +712,7 @@ function generateQuizScenes(quizData) {
     });
 
     scriptBlocks[label] = [
-      "show scene classroom with fadeIn",
+      "show scene quiz_scene with fadeIn",
       "show character alex default at center with fadeIn",
       `alex "${q.text}"`,
       { Choice: choices },
@@ -679,7 +721,7 @@ function generateQuizScenes(quizData) {
 
   // Add ending label with proper scene setup
   scriptBlocks["Dynamic_Quiz_End"] = [
-    "show scene classroom with fadeIn",
+    "show scene quiz_scene with fadeIn",
     "show character alex happy at center with fadeIn",
     "alex Great job completing the quiz!",
     "jump PostQuizEnding",
