@@ -54,7 +54,13 @@
             >
               Learn
             </a>
-            <ul class="dropdown-menu" aria-labelledby="learnDropdown">
+            <ul class="dropdown-menu" aria-labelledby="learnDropdown"> 
+              <li>
+                <a class="dropdown-item" href="{{ url_for('visual_novel') }}"
+                  >Start from Beginning</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
               <li>
                 <a
                   class="dropdown-item"
@@ -74,12 +80,6 @@
                   class="dropdown-item"
                   href="{{ url_for('visual_novel') }}?chapter=Chapter3"
                   >Chapter 3: Microinvalidations</a
-                >
-              </li>
-              <li><hr class="dropdown-divider" /></li>
-              <li>
-                <a class="dropdown-item" href="{{ url_for('visual_novel') }}"
-                  >Start from Beginning</a
                 >
               </li>
             </ul>

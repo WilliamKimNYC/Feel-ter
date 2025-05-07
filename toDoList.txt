@@ -6,3 +6,4 @@
 - dialogue options: 
     should not cover log
     should have text above it "select the best option:"
+- make navbar responsive (works on all screensizes and mobile)

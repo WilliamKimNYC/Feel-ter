@@ -81,7 +81,7 @@ body {
 .navbar .dropdown-menu {
   min-width: 200px;
   max-width: 500px;
-  padding: 0.5rem 0;
+  padding: 0rem 0;
   background-color: white;
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -102,11 +102,29 @@ body {
   padding: 0.5rem 1rem;
   color: var(--text-color);
   text-decoration: none;
+  margin: 0;
 }
 
 .navbar .dropdown-menu .dropdown-item:hover {
   background-color: var(--accent-color);
   color: white;
+  width: 100%;
+  display: block;
+}
+
+/* Round corners for first and last dropdown items */
+.navbar .dropdown-menu li:first-child .dropdown-item:hover {
+  border-radius: 5px 5px 0 0;
+}
+
+.navbar .dropdown-menu li:last-child .dropdown-item:hover {
+  border-radius: 0 0 5px 5px;
+}
+
+/* Dropdown divider styling */
+.navbar .dropdown-menu .dropdown-divider {
+  margin: 0rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /*fade out*/
