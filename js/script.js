@@ -61,11 +61,7 @@ monogatari.assets("sounds", {});
 monogatari.assets("videos", {});
 
 // Define the images used in the game.
-monogatari.assets("images", {
-  "characters/alex/default.png": "characters/alex/default.png",
-  "characters/classmate/default.png": "characters/classmate/default.png",
-  "characters/manager/default.png": "characters/manager/default.png",
-});
+monogatari.assets("images", {});
 
 // Define the backgrounds for each scene.
 monogatari.assets("scenes", {
@@ -112,6 +108,7 @@ monogatari.characters({
     },
   },
 });
+
 
 monogatari.script({
   // The game starts here.

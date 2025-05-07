@@ -140,7 +140,7 @@ monogatari.preferences ({
 
 	// Initial Volumes from 0.0 to 1.
 	'Volume': {
-		'Music': 1,
+		'Music': 0.5,
 		'Voice': 1,
 		'Sound': 1,
 		'Video': 1
@@ -156,5 +156,5 @@ monogatari.preferences ({
 	// Speed at which the Auto Play feature will show the next statement
 	// It is measured in seconds and starts counting after the text is
 	// completely displayed.
-	'AutoPlaySpeed': 5
+	'AutoPlaySpeed': 3
 });
