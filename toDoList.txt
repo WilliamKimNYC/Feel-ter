@@ -7,3 +7,4 @@
     should not cover log
     should have text above it "select the best option:"
 - make navbar responsive (works on all screensizes and mobile)
+- when a player picks a dialogue option, they should say it.
