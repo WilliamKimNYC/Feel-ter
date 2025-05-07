@@ -83,6 +83,7 @@ monogatari.characters({
       explaining: "explaining.png",
       concerned: "concerned.png",
       happy: "happy.png",
+      serious: "serious.png",
     },
   },
   classmate: {
@@ -149,11 +150,17 @@ monogatari.script({
     "play voice alex",
     "alex Microaggressions are small comments or actions that can feel dismissive or hurtful.",
     "next",
+    "show character alex serious at center with fadeIn",
     "play voice alex",
     "alex Microassaults are more direct, and usually intentional.",
     "next",
     "play voice alex",
+    "show character alex concerned at center with fadeIn",
     "alex Microinsults are sneaky insults hiding inside what sounds like praise.",
+    "next",
+    "play voice alex",
+    "show character alex serious at center with fadeIn",
+    "alex Finally, microinvalidations minimize or ignore someone's lived experiences. It undermines their feelings, identity and challenges.",
     "next",
     "show character alex default at center with fadeIn",
     "play voice alex",
@@ -170,9 +177,9 @@ monogatari.script({
     "hide character alex",
     "show character classmate default at center with fadeIn",
     "play voice others",
-    'classmate "Wow, your English is so good! Where are you really from?"',
+    "classmate Wow, your English is so good! Where are you really from? ",
     "next",
-    '[Internal thought]: "I\'ve spoken English my whole life... Why do people always ask me that?"',
+    "[Internal thought]: I've spoken English my whole life... Why do people always ask me that?",
     "next",
     {
       Choice: {
@@ -181,11 +188,11 @@ monogatari.script({
           Do: "jump Chapter1_Feedback1",
         },
         "Say from here": {
-          Text: 'Say, "I\'m from here. Why do you ask?"',
+          Text: "Say: I'm from here. Why do you ask?",
           Do: "jump Chapter1_Feedback2",
         },
         "Laugh about Mars": {
-          Text: 'Laugh and say, "I\'m from Mars."',
+          Text: "Laugh and say, “I'm from Mars.”",
           Do: "jump Chapter1_Feedback3",
         },
       },
@@ -194,51 +201,54 @@ monogatari.script({
 
   Chapter1_Feedback1: [
     "play voice player",
-    'player "..."',
+    "player ...",
     "show scene study_room with fadeIn",
     "show character classmate default at center with fadeIn",
     "next",
     "hide character classmate",
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Sometimes we freeze and move on. That\'s totally normal."',
+    "alex Sometimes we freeze and move on. That's totally normal.",
     "next",
+    "show character alex explaining at center with fadeIn",
     "play voice alex",
-    "alex \"But it's also okay to gently call attention to comments that don't sit right with you.\"",
+    "alex But it's also okay to gently call attention to comments that don't sit right with you.",
     "next",
     "jump Chapter1_Quiz",
   ],
 
   Chapter1_Feedback2: [
     "play voice player",
-    'player "I\'m from here. Why do you ask?"',
+    "player I'm from here. Why do you ask?",
     "show scene study_room with fadeIn",
     "show character classmate default at center with fadeIn",
     "next",
     "hide character classmate",
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Good response!"',
+    "alex Good response!",
     "next",
+    "show character alex explaining at center with fadeIn",
     "play voice alex",
-    'alex "You\'re making them think about why they felt the need to question your belonging — without starting a fight."',
+    "alex You're making them think about why they felt the need to question your belonging — without starting a fight.",
     "next",
     "jump Chapter1_Quiz",
   ],
 
   Chapter1_Feedback3: [
     "play voice player",
-    'player "I\'m from Mars."',
+    "player I'm from Mars.",
     "show scene study_room with fadeIn",
     "show character classmate default at center with fadeIn",
     "next",
     "hide character classmate",
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Humor can deflect the awkwardness."',
+    "alex Humor can deflect the awkwardness.",
     "next",
+    "show character alex serious at center with fadeIn",
     "play voice alex",
-    'alex "But remember, you have every right to ask for respect too."',
+    "alex But remember, you have every right to ask for respect too.",
     "next",
     "jump Chapter1_Quiz",
   ],
@@ -246,7 +256,7 @@ monogatari.script({
   Chapter1_Quiz: [
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Why is this considered a microaggression?"',
+    "alex Why is this considered a microaggression?",
     "next",
     {
       Choice: {
@@ -267,12 +277,13 @@ monogatari.script({
   ],
 
   Chapter1_Quiz_Correct: [
-    "show character alex default at center with fadeIn",
+    "show character alex happy at center with fadeIn",
     "play voice alex",
-    'alex "Exactly!"',
+    "alex Exactly!",
     "next",
+    "show character alex serious at center with fadeIn",
     "play voice alex",
-    "alex \"Even if it sounds polite, it's about suggesting you don't fully belong because of who you are.\"",
+    "alex Even if it sounds polite, it's about suggesting you don't fully belong because of who you are.",
     "next",
     "jump Chapter2",
   ],
@@ -280,13 +291,15 @@ monogatari.script({
   Chapter1_Quiz_Incorrect: [
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Almost."',
+    "alex Almost.",
     "next",
+    "show character alex serious at center with fadeIn",
     "play voice alex",
-    'alex "Even when words sound friendly or funny, they can still carry hidden assumptions."',
+    "alex Even when words sound friendly or funny, they can still carry hidden assumptions.",
     "next",
+    "show character alex explaining at center with fadeIn",
     "play voice alex",
-    "alex \"The key is: did the comment make you feel 'othered' or different based on your identity?\"",
+    "alex The key is: did the comment make you feel 'othered' or different based on your identity?",
     "next",
     "jump Chapter2",
   ],
@@ -300,9 +313,9 @@ monogatari.script({
     "hide character alex",
     "show character manager default at center with fadeIn",
     "play voice others",
-    'manager "We need someone who fits the vibe here... if you know what I mean."',
+    "manager We need someone who fits the vibe here... if you know what I mean.",
     "next",
-    "[Internal thought]: \"Feels like they're saying I don't fit in — but they won't say it directly.\"",
+    "[Internal thought]: Feels like they're saying I don't fit in — but they won't say it directly.",
     "next",
     {
       Choice: {
@@ -324,14 +337,14 @@ monogatari.script({
 
   Chapter2_Feedback1: [
     "play voice player",
-    "player \"What do you mean by 'vibe'?\"",
+    "player What do you mean by 'vibe'?",
     "show scene cafe with fadeIn",
     "show character manager default at center with fadeIn",
     "next",
     "hide character manager",
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Nice — asking puts the responsibility back on them to explain themselves."',
+    "alex Nice — asking puts the responsibility back on them to explain themselves.",
     "next",
     "jump Chapter2_Quiz",
   ],
@@ -345,13 +358,14 @@ monogatari.script({
     "hide character manager",
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Totally understandable."',
+    "alex Totally understandable.",
     "next",
     "play voice alex",
-    'alex "Sometimes it feels safer to stay quiet."',
+    "alex Sometimes it feels safer to stay quiet.",
     "next",
+    "show character alex serious at center with fadeIn",
     "play voice alex",
-    'alex "Just remember — it\'s okay to ask for clarification if something feels off."',
+    "alex Just remember — it's okay to ask for clarification if something feels off.",
     "next",
     "jump Chapter2_Quiz",
   ],
@@ -363,20 +377,21 @@ monogatari.script({
     "show character manager default at center with fadeIn",
     "next",
     "hide character manager",
+    "show character alex serious at center with fadeIn",
+    "play voice alex",
+    "alex Walking away protects your peace — but sometimes it also lets bias go unchallenged.",
+    "next",
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Walking away protects your peace — but sometimes it also lets bias go unchallenged."',
-    "next",
-    "play voice alex",
-    'alex "Always choose what feels safest for you."',
+    "alex Always choose what feels safest for you.",
     "next",
     "jump Chapter2_Quiz",
   ],
 
   Chapter2_Quiz: [
-    "show character alex default at center with fadeIn",
+    "show character alex serious at center with fadeIn",
     "play voice alex",
-    'alex "What makes this situation a microassault?"',
+    "alex What makes this situation a microassault?",
     "next",
     {
       Choice: {
@@ -397,12 +412,13 @@ monogatari.script({
   ],
 
   Chapter2_Quiz_Correct: [
-    "show character alex default at center with fadeIn",
+    "show character alex happy at center with fadeIn",
     "play voice alex",
-    'alex "Exactly!"',
+    "alex Exactly!",
     "next",
+    "show character alex explaining at center with fadeIn",
     "play voice alex",
-    'alex "Microassaults are usually subtle, but there\'s more purpose and bias behind them."',
+    "alex Microassaults are usually subtle, but there's more purpose and bias behind them.",
     "next",
     "jump Chapter3",
   ],
@@ -410,10 +426,11 @@ monogatari.script({
   Chapter2_Quiz_Incorrect: [
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Not quite."',
+    "alex Not quite.",
     "next",
+    "show character alex explaining at center with fadeIn",
     "play voice alex",
-    'alex "Microassaults aren\'t accidents — they usually carry some intent, even if the person hides it under vague words."',
+    "alex Microassaults aren't accidents — they usually carry some intent, even if the person hides it under vague words.",
     "next",
     "jump Chapter3",
   ],
@@ -427,7 +444,7 @@ monogatari.script({
     "hide character alex",
     "show character classmate default at center with fadeIn",
     "play voice others",
-    'classmate "Wow, I didn\'t expect you to be this good!"',
+    "classmate Wow, I didn't expect you to be this good!",
     "next",
     '[Internal thought]: "Wait... why wouldn\'t you expect that?"',
     "next",
@@ -458,44 +475,47 @@ monogatari.script({
     "hide character classmate",
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "It\'s okay to move on."',
+    "alex It's okay to move on.",
     "next",
+    "show character alex concerned at center with fadeIn",
     "play voice alex",
-    'alex "But if it leaves a weird feeling, trust yourself — you\'re picking up on something real."',
+    "alex But if it leaves a weird feeling, trust yourself — you're picking up on something real.",
     "next",
     "jump Chapter3_Quiz",
   ],
 
   Chapter3_Feedback2: [
     "play voice player",
-    'player "Why wouldn\'t you expect that?"',
+    "player Why wouldn't you expect that?",
     "show scene classroom with fadeIn",
     "show character classmate default at center with fadeIn",
     "next",
     "hide character classmate",
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Perfect — you\'re inviting them to reflect without being hostile."',
+    "alex Perfect — you're inviting them to reflect without being hostile.",
     "next",
+    "show character alex explaining at center with fadeIn",
     "play voice alex",
-    'alex "Sometimes that\'s all it takes to plant a seed of awareness."',
+    "alex Sometimes that's all it takes to plant a seed of awareness.",
     "next",
     "jump Chapter3_Quiz",
   ],
 
   Chapter3_Feedback3: [
     "play voice player",
-    'player "Haha, yeah..."',
+    "player Haha, yeah...",
     "show scene classroom with fadeIn",
     "show character classmate default at center with fadeIn",
     "next",
     "hide character classmate",
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Humor can soften awkward moments."',
+    "alex Humor can soften awkward moments.",
     "next",
+    "show character alex serious at center with fadeIn",
     "play voice alex",
-    "alex \"But remember, you don't have to pretend comments like that are harmless if they don't feel good.\"",
+    "alex But remember, you don't have to pretend comments like that are harmless if they don't feel good.",
     "next",
     "jump Chapter3_Quiz",
   ],
@@ -503,7 +523,7 @@ monogatari.script({
   Chapter3_Quiz: [
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "What makes this a microinsult?"',
+    "alex What makes this a microinsult?",
     "next",
     {
       Choice: {
@@ -524,12 +544,13 @@ monogatari.script({
   ],
 
   Chapter3_Quiz_Correct: [
-    "show character alex default at center with fadeIn",
+    "show character alex happy at center with fadeIn",
     "play voice alex",
-    'alex "Exactly!"',
+    "alex Exactly!",
     "next",
     "play voice alex",
-    'alex "It sounds like praise, but it actually reinforces a stereotype."',
+    "show character alex explaining at center with fadeIn",
+    "alex It sounds like praise, but it actually reinforces a stereotype.",
     "next",
     "jump Ending",
   ],
@@ -537,68 +558,75 @@ monogatari.script({
   Chapter3_Quiz_Incorrect: [
     "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Close, but not quite."',
+    "alex Close, but not quite.",
     "next",
+    "show character alex concerned at center with fadeIn",
     "play voice alex",
-    "alex \"Even when the words sound nice, if they carry surprise or low expectations about someone's identity — it's a microinsult.\"",
+    "alex Even when the words sound nice, if they carry surprise or low expectations about someone's identity — it's a microinsult.",
     "next",
     "jump Ending",
   ],
 
   PostQuizEnding: [
-  "play voice alex",
-  'alex "Today you learned how to spot microaggressions, microassaults, and microinsults — and why they matter."',
-  "next",
-  "play voice alex",
-  'alex "Even small words can carry big messages."',
-  "next",
-  "play voice alex",
-  "alex \"It's okay to notice them. It's okay to respond.\"",
-  "next",
-  "play voice alex",
-  'alex "You deserve to be seen, heard, and respected — always."',
-  "next",
-  {
-    Function: {
-      Apply: function () {
-        const score = monogatari.storage('quizScore') || 0;
-        return `You got ${score} out of 5 questions correct!`;
-      },
-      Return: function (line) {
-        return line;
+    "show character alex default at center with fadeIn",
+    "play voice alex",
+    "alex Today you learned how to spot microaggressions, microassaults, and microinsults — and why they matter.",
+    "next",
+    "show character alex explaining at center with fadeIn",
+    "play voice alex",
+    "alex Even small words can carry big messages.",
+    "next",
+    "play voice alex",
+    "show character alex default at center with fadeIn",
+    "alex It's okay to notice them. It's okay to respond.",
+    "next",
+    "play voice alex",
+    "alex You deserve to be seen, heard, and respected — always.",
+    {
+      Function: {
+        Apply: function () {
+          const score = monogatari.storage("quizScore") || 0;
+          return `You got ${score} out of 5 questions correct!`;
+        },
+        Return: function (line) {
+          return line;
+        },
       },
     },
-  },
-  "next",
-  "Thank you for playing!",
-  "end"
-],
-
+    "next",
+    "show character alex greet at center with fadeIn",
+    "Thank you for playing!",
+    "end",
+  ],
 
   Ending: [
     "stop music with fade 1",
     "show scene ending with fadeIn",
     "play music ending with loop fade 2",
-    "show character alex default at center with fadeIn",
+    "show character alex happy at center with fadeIn",
     "play voice alex",
-    'alex "You made it through!"',
+    "alex You made it through!",
     "next",
+    "show character alex explaining at center with fadeIn",
     "play voice alex",
-    'alex "Before we wrap up, let us see what you learned."',
+    "alex Before we wrap up, let us see what you learned.",
     "next",
     "jump Dynamic_Quiz_1",
     "next",
+    "show character alex default at center with fadeIn",
     "play voice alex",
-    'alex "Today you learned how to spot microaggressions, microassaults, and microinsults — and why they matter."',
+    "alex Today you learned how to spot microaggressions, microassaults, and microinsults — and why they matter.",
+    "next",
+    "show character alex explaning at center with fadeIn",
+    "play voice alex",
+    "alex Even small words can carry big messages.",
     "next",
     "play voice alex",
-    'alex "Even small words can carry big messages."',
+    "alex It's okay to notice them. It's okay to respond.",
     "next",
     "play voice alex",
-    "alex \"It's okay to notice them. It's okay to respond.\"",
-    "next",
-    "play voice alex",
-    'alex "You deserve to be seen, heard, and respected — always."',
+    "show character alex default at center with fadeIn",
+    "alex You deserve to be seen, heard, and respected — always.",
     "next",
     "Thank you for playing!",
     "end",
@@ -610,26 +638,28 @@ function generateQuizScenes(quizData) {
   monogatari.on("start", () => {
     generateQuizScenes(quizData);
   });
-  
+
   const scriptBlocks = {};
   quizData.questions.forEach((q, index) => {
     const label = `Dynamic_Quiz_${index + 1}`;
-    const nextLabel = index + 1 < quizData.questions.length ? `Dynamic_Quiz_${index + 2}` : `Dynamic_Quiz_End`;
+    const nextLabel =
+      index + 1 < quizData.questions.length
+        ? `Dynamic_Quiz_${index + 2}`
+        : `Dynamic_Quiz_End`;
 
     const choices = {};
     q.options.forEach((opt, i) => {
       const feedbackLabel = `${label}_Feedback_${i}`;
       choices[`option_${index}_${i}`] = {
         Text: opt.text,
-        Do: `jump ${feedbackLabel}`
+        Do: `jump ${feedbackLabel}`,
       };
-      
 
       scriptBlocks[feedbackLabel] = [
         "show scene classroom with fadeIn",
         "show character alex default at center with fadeIn",
         `alex "${opt.isCorrect ? q.feedback.correct : q.feedback.incorrect}"`,
-        `jump ${nextLabel}`
+        `jump ${nextLabel}`,
       ];
     });
 
@@ -637,16 +667,16 @@ function generateQuizScenes(quizData) {
       "show scene classroom with fadeIn",
       "show character alex default at center with fadeIn",
       `alex "${q.text}"`,
-      { Choice: choices }
+      { Choice: choices },
     ];
   });
 
   // Add ending label with proper scene setup
-  scriptBlocks['Dynamic_Quiz_End'] = [
+  scriptBlocks["Dynamic_Quiz_End"] = [
     "show scene classroom with fadeIn",
-    "show character alex default at center with fadeIn",
-    'alex "Great job completing the quiz!"',
-    'jump PostQuizEnding'
+    "show character alex happy at center with fadeIn",
+    "alex Great job completing the quiz!",
+    "jump PostQuizEnding",
   ];
 
   monogatari.script(scriptBlocks);
@@ -654,4 +684,3 @@ function generateQuizScenes(quizData) {
 
 // Load the quiz data and generate Monogatari script from it
 generateQuizScenes(quizData);
-
