@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, request
 import os
 
 app = Flask(__name__, static_folder='.', static_url_path='')
@@ -9,7 +9,9 @@ def homepage():
 
 @app.route('/novel')
 def visual_novel():
-    return render_template('novel.html')
+    # Get chapter parameter if it exists
+    chapter = request.args.get('chapter', default=None)
+    return render_template('novel.html', chapter=chapter)
 
 @app.route('/assets/<path:filename>')
 def serve_assets(filename):

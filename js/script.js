@@ -626,19 +626,25 @@ function generateQuizScenes(quizData) {
       
 
       scriptBlocks[feedbackLabel] = [
+        "show scene classroom with fadeIn",
+        "show character alex default at center with fadeIn",
         `alex "${opt.isCorrect ? q.feedback.correct : q.feedback.incorrect}"`,
         `jump ${nextLabel}`
       ];
     });
 
     scriptBlocks[label] = [
+      "show scene classroom with fadeIn",
+      "show character alex default at center with fadeIn",
       `alex "${q.text}"`,
       { Choice: choices }
     ];
   });
 
-  // Add ending label
+  // Add ending label with proper scene setup
   scriptBlocks['Dynamic_Quiz_End'] = [
+    "show scene classroom with fadeIn",
+    "show character alex default at center with fadeIn",
     'alex "Great job completing the quiz!"',
     'jump PostQuizEnding'
   ];

@@ -83,19 +83,19 @@ const quizData = {
             text: "Which of the following is an example of a verbal microaggression?",
             options: [
                 {
-                    text: "\"You're so articulate for someone from your background!\"",
+                    text: "You're so articulate for someone from your background!",
                     isCorrect: true
                 },
                 {
-                    text: "\"Please submit your report by Friday.\"",
+                    text: "Please submit your report by Friday.",
                     isCorrect: false
                 },
                 {
-                    text: "\"Good morning, how are you?\"",
+                    text: "Good morning, how are you?",
                     isCorrect: false
                 },
                 {
-                    text: "\"The meeting starts at 2 PM.\"",
+                    text: "The meeting starts at 2 PM.",
                     isCorrect: false
                 }
             ],

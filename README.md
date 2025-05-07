@@ -1,13 +1,26 @@
-# Visual Novel Website
+# Feel-ter: Understanding Microaggressions
 
-A Flask-based website that hosts a visual novel experience. The visual novel is accessible through the `/novel` route, while the main website provides navigation and additional content.
+A Flask-based interactive learning platform that helps users understand, recognize, and respond to microaggressions through an engaging visual novel experience.
+
+## About
+
+Feel-ter is a space to *feel* and *filter* what you hear. It helps users learn how to:
+- Recognize different types of microaggressions
+- Understand why they hurt
+- Learn appropriate ways to respond
+- Create more inclusive environments
 
 ## Features
 
+- Interactive visual novel experience with branching scenarios
+- Three main learning chapters:
+  - Chapter 1: Microinsults
+  - Chapter 2: Microassaults
+  - Chapter 3: Microinvalidations
+- Interactive quiz to test understanding
 - Modern, responsive website design
-- Navigation between homepage and visual novel
-- Integrated visual novel experience
-- Flask backend for serving content
+- Character-guided learning experience
+- Real-world scenario simulations
 
 ## Setup
 
@@ -36,10 +49,13 @@ http://localhost:5000
 - `static/` - Static files
   - `style/` - CSS files
   - `js/` - JavaScript files
+    - `script.js` - Main story content and scenarios
+    - `quiz-data.js` - Quiz questions and answers
   - `assets/` - Images and other assets
 
 ## Development
 
-To modify the visual novel content, edit the files in the `js/` directory. The main story content is in `script.js`.
-
-To modify the website design, edit the files in the `style/` directory. 
+To modify the learning content:
+- Edit `js/script.js` to update the visual novel scenarios
+- Edit `js/quiz-data.js` to modify quiz questions and answers
+- Edit files in the `style/` directory to update the website design 
