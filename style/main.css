@@ -204,6 +204,17 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Homepage Decorative Elements */
+.homepage-eye {
+  position: absolute;
+  bottom: 2rem;
+  left: 3rem;
+  width: 16rem;
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
+}
+
 /* Visual Novel Container */
 #monogatari {
   width: 100%;
