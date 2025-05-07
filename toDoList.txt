@@ -10,3 +10,6 @@ done - should have text above it "select the best option:"
 done - make navbar responsive (works on all screensizes and mobile)
 
 - when a player picks a dialogue option, they should say it.
+
+- hover on the dropdown in the navbar is broken
+- make navbar responsive (fix it)
