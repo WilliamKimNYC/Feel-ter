@@ -13,3 +13,5 @@ done - make navbar responsive (works on all screensizes and mobile)
 
 - hover on the dropdown in the navbar is broken
 - make navbar responsive (fix it)
+- make gif on homescreen responsive
+- just make the whole shit responsive
