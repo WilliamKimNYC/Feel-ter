@@ -15,3 +15,6 @@ done - make navbar responsive (works on all screensizes and mobile)
 - make navbar responsive (fix it)
 - make gif on homescreen responsive
 - just make the whole shit responsive
+
+- make transition slide that clearly says "Quiz" 
+- some of the dialogue is weird "player uses "you" instead of "i"
