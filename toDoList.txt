@@ -17,5 +17,4 @@
     - udpate website name on quiz results screen.
 
 - make navbar responsive (fix it)
-- make gif on homescreen responsive
 - just make the whole shit responsive

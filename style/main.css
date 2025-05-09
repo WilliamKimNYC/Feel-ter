@@ -213,6 +213,34 @@ body {
   height: auto;
   z-index: -1;
   pointer-events: none;
+  max-width: 35%; /* Ensures image doesn't get too large on wide screens */
+  opacity: 0.8; /* Slightly transparent to ensure it doesn't dominate content */
+  transition: all 0.3s ease; /* Smooth transitions when screen size changes */
+}
+
+/* Make homepage eye responsive on different screen sizes */
+@media screen and (max-width: 768px) {
+  .homepage-eye {
+    width: 12rem;
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .homepage-eye {
+    width: 8rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .homepage-eye {
+    width: 6rem;
+    bottom: 0.5rem;
+    left: 0.5rem;
+  }
 }
 
 /* Visual Novel Container */
