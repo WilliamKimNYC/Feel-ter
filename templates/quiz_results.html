@@ -487,7 +487,7 @@
       });
       
       questionHTML += `</ul>
-        <div class="feedback-text">${question.feedback.correct}</div>
+        <div class="feedback-text">${isMissed ? question.feedback.incorrect : question.feedback.correct}</div>
       `;
       
       questionCard.innerHTML = questionHTML;
