@@ -1,22 +1,21 @@
-- create custom favicon
-- custom music for each scene, seperate music for quiz.
-
-- fix "review" after finishing quiz
+**URGENT**
 - write the actual quiz questions
-
-- dialogue options: 
-done - should not cover log
-done - should have text above it "select the best option:"
-done - make navbar responsive (works on all screensizes and mobile)
-
-- when a player picks a dialogue option, they should say it.
-
-- hover on the dropdown in the navbar is broken
-- make navbar responsive (fix it)
-- make gif on homescreen responsive
-- just make the whole shit responsive
-
+- fully flesh out the scenarios
+- fix the css on that one dialogue option
+- title screen for vn (replace the picture of columbia)
 - make transition slide that clearly says "Quiz" 
 - some of the dialogue is weird "player uses "you" instead of "i"
 - when player thinks, it should say player's name
 - change font so quotation marks don't look stupid
+
+**IF WE HAVE TIME**
+- custom favicon
+- finalize music selection
+    - should be different song for each scenarios
+
+- host somewhere- pick website name
+    - udpate website name on quiz results screen.
+
+- make navbar responsive (fix it)
+- make gif on homescreen responsive
+- just make the whole shit responsive
