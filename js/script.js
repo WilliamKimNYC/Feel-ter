@@ -21,7 +21,7 @@ monogatari.action("notification").notifications({
   },
   Thought: {
     title: "",
-    body: "<div class='inner-thought'>I’ve spoken English my whole life... Why do people always ask me that?</div>",
+    body: "<div class='inner-thought'>I've spoken English my whole life... Why do people always ask me that?</div>",
     icon: "",
   },
 });
@@ -185,7 +185,7 @@ monogatari.script({
     "play voice others",
     "classmate Wow, your English is so good! Where are you really from? ",
     "next",
-    "<div class='inner-thought'>I’ve spoken English my whole life... Why do people always ask me that?</div>",
+    "<div class='inner-thought'>I've spoken English my whole life... Why do people always ask me that?</div>",
     "next",
     {
       Choice: {
@@ -198,7 +198,7 @@ monogatari.script({
           Do: "jump Chapter1_Feedback2",
         },
         "Laugh about Mars": {
-          Text: "Laugh and say, “I'm from Mars.”",
+          Text: "Laugh and say, \"I'm from Mars.\"",
           Do: "jump Chapter1_Feedback3",
         },
       },
@@ -348,7 +348,7 @@ monogatari.script({
     {
       Choice: {
         "Ask about vibe": {
-          Text: "Ask: “What do you mean by ‘vibe’?”",
+          Text: "Ask: \"What do you mean by 'vibe'?\"",
           Do: "jump Chapter2_Feedback1",
         },
         "Stay quiet": {
@@ -365,7 +365,7 @@ monogatari.script({
 
   Chapter2_Feedback1: [
     "play voice player",
-    "player What do you mean by ‘vibe'?",
+    "player What do you mean by 'vibe'?",
     "show scene cafe with fadeIn",
     "show character manager default at center with fadeIn",
     "next",
@@ -502,7 +502,7 @@ monogatari.script({
           Do: "jump Chapter3_Feedback1",
         },
         "Ask why": {
-          Text: "Ask, “Why wouldn't you expect that?\"",
+          Text: "Ask, \"Why wouldn't you expect that?\"",
           Do: "jump Chapter3_Feedback2",
         },
         "Laugh it off": {
@@ -686,45 +686,125 @@ function generateQuizScenes(quizData) {
   monogatari.on("start", () => {
     generateQuizScenes(quizData);
   });
-
+  
+  // Initialize score tracking 
+  monogatari.storage({
+    quizScore: 0,
+    quizMissed: [],
+    quizSelections: {} // Track user selections for each question
+  });
+  
   const scriptBlocks = {};
   quizData.questions.forEach((q, index) => {
     const label = `Dynamic_Quiz_${index + 1}`;
-    const nextLabel =
-      index + 1 < quizData.questions.length
-        ? `Dynamic_Quiz_${index + 2}`
-        : `Dynamic_Quiz_End`;
+    const nextLabel = index + 1 < quizData.questions.length ? `Dynamic_Quiz_${index + 2}` : `Dynamic_Quiz_End`;
 
     const choices = {};
     q.options.forEach((opt, i) => {
       const feedbackLabel = `${label}_Feedback_${i}`;
-      choices[`option_${index}_${i}`] = {
-        Text: opt.text,
-        Do: `jump ${feedbackLabel}`,
-      };
+      choices[opt.text] = { Text: opt.text, Do: `jump ${feedbackLabel}` };
 
       scriptBlocks[feedbackLabel] = [
-        "show scene quiz_scene with fadeIn",
+        "show scene classroom with fadeIn",
         "show character alex default at center with fadeIn",
+        {
+          Function: {
+            Apply: function() {
+              // Store the user's selection
+              let selections = this.storage('quizSelections') || {};
+              selections[index] = i; // Store option index selected for this question
+              
+              // If the answer is correct, increment the score
+              if (opt.isCorrect) {
+                this.storage({
+                  quizScore: this.storage('quizScore') + 1,
+                  quizSelections: selections
+                });
+              } else {
+                // If incorrect, track the question index
+                let missed = this.storage('quizMissed') || [];
+                if (!missed.includes(index)) {
+                  missed.push(index);
+                  this.storage({ 
+                    quizMissed: missed,
+                    quizSelections: selections
+                  });
+                }
+              }
+              return true;
+            }
+          }
+        },
         `alex "${opt.isCorrect ? q.feedback.correct : q.feedback.incorrect}"`,
-        `jump ${nextLabel}`,
+        `jump ${nextLabel}`
       ];
     });
 
     scriptBlocks[label] = [
-      "show scene quiz_scene with fadeIn",
+      "show scene classroom with fadeIn",
       "show character alex default at center with fadeIn",
       `alex "${q.text}"`,
-      { Choice: choices },
+      { Choice: choices }
     ];
   });
 
-  // Add ending label with proper scene setup
-  scriptBlocks["Dynamic_Quiz_End"] = [
-    "show scene quiz_scene with fadeIn",
-    "show character alex happy at center with fadeIn",
-    "alex Great job completing the quiz!",
-    "jump PostQuizEnding",
+  // Add ending label with score tracking and redirection
+  scriptBlocks['Dynamic_Quiz_End'] = [
+    "show scene classroom with fadeIn",
+    "show character alex default at center with fadeIn",
+    'alex "Great job completing the quiz!"',
+    {
+      Function: {
+        Apply: function() {
+          // Get the score, missed questions, and selections
+          const score = this.storage('quizScore') || 0;
+          const missed = this.storage('quizMissed') || [];
+          const selections = this.storage('quizSelections') || {};
+          const total = quizData.questions.length;
+          
+          // Make sure missed questions are properly formatted
+          const missedString = missed.length > 0 ? missed.join(',') : '';
+          
+          // Convert selections object to JSON string
+          const selectionsJSON = JSON.stringify(selections);
+          
+          // Log the values for debugging
+          console.log("Score:", score);
+          console.log("Total:", total);
+          console.log("Missed:", missedString);
+          console.log("Selections:", selectionsJSON);
+          
+          // Send the results to the server
+          fetch('/save-quiz-result', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              score: score,
+              total: total,
+              missed: missedString,
+              selections: selectionsJSON
+            })
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              // Redirect to the results page
+              window.location.href = data.url;
+            } else {
+              console.error('Failed to save quiz result');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+          
+          return true;
+        }
+      }
+    },
+    'alex "Let\'s see your results!"'
   ];
 
   monogatari.script(scriptBlocks);

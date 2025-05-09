@@ -1,0 +1,524 @@
+{% extends "base.html" %} 
+{% block title %}Feel-ter Quiz Results{% endblock %} 
+
+{% block extra_css %}
+<style>
+  .results-container {
+    max-width: 800px;
+    margin: 120px auto 50px;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .results-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .score-display {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+  }
+  
+  .score-message {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .share-container {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .share-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+  }
+  
+  .twitter-button {
+    background-color: #000000;
+    color: white;
+  }
+  
+  .facebook-button {
+    background-color: #4267B2;
+    color: white;
+  }
+  
+  .copy-button {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .share-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+  
+  .share-text {
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-family: monospace;
+    position: relative;
+  }
+  
+  .review-questions {
+    margin-top: 2rem;
+  }
+  
+  .question-card {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #dc3545;
+  }
+  
+  .question-text {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .options-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .option-item {
+    position: relative;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+  }
+  
+  .option-correct {
+    background-color: rgba(40, 167, 69, 0.2);
+    border-left: 3px solid #28a745;
+  }
+  
+  .option-incorrect {
+    background-color: rgba(220, 53, 69, 0.2);
+    border-left: 3px solid #dc3545;
+  }
+  
+  .option-neutral {
+    background-color: transparent;
+    border-left: 3px solid #e9ecef;
+  }
+  
+  .user-selection-mark {
+    position: absolute;
+    right: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  .feedback-text {
+    margin-top: 1rem;
+    font-style: italic;
+    color: #6c757d;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .action-button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #5969d6;
+    transform: translateY(-2px);
+  }
+  
+  #copy-confirmation {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    z-index: 1000;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="results-container">
+  <div class="results-header">
+    <h1>Your Microaggressions Quiz Results</h1>
+  </div>
+  
+  <div class="score-display">
+    {{ score }}/{{ total }}
+  </div>
+  
+  <div class="score-message">
+    {% if score|int == total|int %}
+      Excellent job! You have a strong understanding of microaggressions.
+    {% elif score|int >= total|int * 0.8 %}
+      Great work! You have a good understanding of microaggressions.
+    {% elif score|int >= total|int * 0.6 %}
+      Good effort! You're on your way to understanding microaggressions.
+    {% else %}
+      Thank you for taking the quiz. Learning about microaggressions is an ongoing journey.
+    {% endif %}
+  </div>
+  
+  <div class="share-container">
+    <h3>Share Your Results</h3>
+    <div class="share-text" id="share-text">
+      I scored {{ score }}/{{ total }} on the Feel-ter Microaggressions Quiz! Test your knowledge at https://feel-ter.com
+    </div>
+    <div class="share-buttons">
+      <button class="share-button twitter-button" id="twitter-share">
+        <i class="fas fa-times"></i> X
+      </button>
+      <button class="share-button facebook-button" id="facebook-share">
+        <i class="fab fa-facebook"></i> Facebook
+      </button>
+      <button class="share-button copy-button" id="copy-button">
+        <i class="fas fa-copy"></i> Copy
+      </button>
+    </div>
+  </div>
+  
+  <div class="review-questions">
+    <h2>Quiz Review</h2>
+    <div id="quiz-questions-container"></div>
+  </div>
+  
+  <div class="action-buttons">
+    <a href="{{ url_for('homepage') }}" class="action-button">Return Home</a>
+    <a href="{{ url_for('visual_novel') }}?chapter=quiz" class="action-button">Retake Quiz</a>
+  </div>
+</div>
+
+<div id="copy-confirmation">Copied to clipboard!</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Define missed questions from server data
+    const missedQuestionsData = "{{ missed_questions|join(',') }}";
+    let missedIndices = [];
+    
+    if (missedQuestionsData && missedQuestionsData.trim() !== '') {
+      missedIndices = missedQuestionsData.split(',').map(num => parseInt(num.trim()));
+    }
+    
+    // Parse the user's selections
+    let userSelections = {};
+    try {
+      userSelections = JSON.parse('{{ selections|safe }}');
+    } catch (e) {
+      console.error("Error parsing selections:", e);
+      userSelections = {};
+    }
+    
+    // Directly define quiz data here to avoid loading issues
+    const quizData = {
+      questions: [
+        {
+          id: 1,
+          text: "What is a microaggression?",
+          options: [
+            {
+              text: "A subtle, often unintentional expression of bias or prejudice",
+              isCorrect: true
+            },
+            {
+              text: "An obvious act of discrimination",
+              isCorrect: false
+            },
+            {
+              text: "A formal complaint about workplace behavior",
+              isCorrect: false
+            },
+            {
+              text: "A type of workplace harassment",
+              isCorrect: false
+            }
+          ],
+          feedback: {
+            correct: "Correct! Microaggressions are subtle, often unintentional expressions of bias or prejudice.",
+            incorrect: "Not quite. Microaggressions are subtle, often unintentional expressions of bias or prejudice."
+          }
+        },
+        {
+          id: 2,
+          text: "Which of the following is an example of an environmental microaggression?",
+          options: [
+            {
+              text: "A workplace with only one type of demographic in leadership photos",
+              isCorrect: true
+            },
+            {
+              text: "A coworker making a comment about someone's accent",
+              isCorrect: false
+            },
+            {
+              text: "A manager assigning tasks based on stereotypes",
+              isCorrect: false
+            },
+            {
+              text: "A colleague using inappropriate language",
+              isCorrect: false
+            }
+          ],
+          feedback: {
+            correct: "Correct! Environmental microaggressions are subtle messages in our physical surroundings that make certain groups feel unwelcome.",
+            incorrect: "Not quite. Environmental microaggressions are subtle messages in our physical surroundings, like having only one type of demographic in leadership photos."
+          }
+        },
+        {
+          id: 3,
+          text: "What is the most effective way to respond to a microaggression?",
+          options: [
+            {
+              text: "Address it calmly and professionally while maintaining a constructive dialogue",
+              isCorrect: true
+            },
+            {
+              text: "Ignore it to avoid conflict",
+              isCorrect: false
+            },
+            {
+              text: "Respond with anger to make your point",
+              isCorrect: false
+            },
+            {
+              text: "Report it immediately to HR",
+              isCorrect: false
+            }
+          ],
+          feedback: {
+            correct: "Correct! Addressing microaggressions calmly and professionally while maintaining a constructive dialogue is the most effective approach.",
+            incorrect: "Not quite. The most effective approach is to address it calmly and professionally while maintaining a constructive dialogue."
+          }
+        },
+        {
+          id: 4,
+          text: "Which of the following is an example of a verbal microaggression?",
+          options: [
+            {
+              text: "You're so articulate for someone from your background!",
+              isCorrect: true
+            },
+            {
+              text: "Please submit your report by Friday.",
+              isCorrect: false
+            },
+            {
+              text: "Good morning, how are you?",
+              isCorrect: false
+            },
+            {
+              text: "The meeting starts at 2 PM.",
+              isCorrect: false
+            }
+          ],
+          feedback: {
+            correct: "Correct! This comment implies prejudiced expectations based on someone's background.",
+            incorrect: "Not quite. The comment \"You're so articulate for someone from your background!\" is a verbal microaggression because it implies prejudiced expectations."
+          }
+        },
+        {
+          id: 5,
+          text: "What is the purpose of addressing microaggressions?",
+          options: [
+            {
+              text: "To create more inclusive environments through education and growth",
+              isCorrect: true
+            },
+            {
+              text: "To punish those who commit microaggressions",
+              isCorrect: false
+            },
+            {
+              text: "To create conflict in the workplace",
+              isCorrect: false
+            },
+            {
+              text: "To document workplace issues",
+              isCorrect: false
+            }
+          ],
+          feedback: {
+            correct: "Correct! The purpose is to create more inclusive environments through education and growth, not blame or shame.",
+            incorrect: "Not quite. The purpose is to create more inclusive environments through education and growth, not to punish or create conflict."
+          }
+        }
+      ]
+    };
+    
+    // Display all quiz questions with answers
+    const questionsContainer = document.getElementById('quiz-questions-container');
+    
+    // Clear container first
+    questionsContainer.innerHTML = '';
+    
+    // Add some CSS for selected options
+    const style = document.createElement('style');
+    style.textContent = `
+      .option-correct {
+        background-color: rgba(40, 167, 69, 0.2);
+        border-left: 3px solid #28a745;
+      }
+      
+      .option-incorrect {
+        background-color: rgba(220, 53, 69, 0.2);
+        border-left: 3px solid #dc3545;
+      }
+      
+      .option-neutral {
+        background-color: transparent;
+        border-left: 3px solid #e9ecef;
+      }
+      
+      .option-item {
+        position: relative;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 4px;
+      }
+      
+      .user-selection-mark {
+        position: absolute;
+        right: 10px;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // Show all questions
+    quizData.questions.forEach((question, index) => {
+      const questionCard = document.createElement('div');
+      // Add special styling for missed questions
+      const isMissed = missedIndices.includes(index);
+      questionCard.className = `question-card ${isMissed ? 'missed-question' : 'correct-question'}`;
+      
+      if (isMissed) {
+        questionCard.style.borderLeft = '4px solid #dc3545'; // Red for missed questions
+      } else {
+        questionCard.style.borderLeft = '4px solid #28a745'; // Green for correct questions
+      }
+      
+      let questionHTML = `
+        <div class="question-text">
+          <span class="question-status">${isMissed ? '❌' : '✓'}</span>
+          ${question.text}
+        </div>
+        <ul class="options-list">
+      `;
+      
+      question.options.forEach((option, optionIndex) => {
+        // Check if this was the user's selection
+        const userSelectedThisOption = (userSelections[index] === optionIndex);
+        
+        // Define styling based on user selection and correctness
+        let optionClass;
+        let optionMark = '';
+        
+        if (userSelectedThisOption) {
+          // User selected this option
+          if (option.isCorrect) {
+            optionClass = 'option-correct'; // Green if correct
+            optionMark = '<span class="user-selection-mark">✓ Your answer</span>';
+          } else {
+            optionClass = 'option-incorrect'; // Red if incorrect
+            optionMark = '<span class="user-selection-mark">✗ Your answer</span>';
+          }
+        } else {
+          // User did not select this option
+          if (option.isCorrect) {
+            optionClass = 'option-correct'; // Still show correct answer in green
+          } else {
+            optionClass = 'option-neutral'; // Neutral for non-selected incorrect answers
+          }
+        }
+        
+        questionHTML += `
+          <li class="option-item ${optionClass}">
+            ${option.isCorrect ? '✓' : ''} ${option.text} ${optionMark}
+          </li>
+        `;
+      });
+      
+      questionHTML += `</ul>
+        <div class="feedback-text">${question.feedback.correct}</div>
+      `;
+      
+      questionCard.innerHTML = questionHTML;
+      questionsContainer.appendChild(questionCard);
+    });
+    
+    // Share functionality
+    const shareText = document.getElementById('share-text').innerText;
+    
+    // Twitter (now X) share
+    document.getElementById('twitter-share').addEventListener('click', function() {
+      const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+      window.open(twitterUrl, '_blank');
+    });
+    
+    // Facebook share
+    document.getElementById('facebook-share').addEventListener('click', function() {
+      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(shareText)}`;
+      window.open(facebookUrl, '_blank');
+    });
+    
+    // Copy to clipboard
+    document.getElementById('copy-button').addEventListener('click', function() {
+      navigator.clipboard.writeText(shareText).then(function() {
+        const confirmation = document.getElementById('copy-confirmation');
+        confirmation.style.display = 'block';
+        setTimeout(function() {
+          confirmation.style.display = 'none';
+        }, 2000);
+      });
+    });
+  });
+</script>
+{% endblock %} 

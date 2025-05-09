@@ -18,3 +18,5 @@ done - make navbar responsive (works on all screensizes and mobile)
 
 - make transition slide that clearly says "Quiz" 
 - some of the dialogue is weird "player uses "you" instead of "i"
+- when player thinks, it should say player's name
+- change font so quotation marks don't look stupid
