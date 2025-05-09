@@ -1,6 +1,6 @@
 # Feel-ter: Understanding Microaggressions
 
-A Flask-based interactive learning platform that helps users understand, recognize, and respond to microaggressions through an engaging visual novel experience.
+A Flask-based interactive learning platform that helps users understand, recognize, and respond to microaggressions through an engaging visual novel experience and interactive quizzes.
 
 ## About
 
@@ -17,10 +17,16 @@ Feel-ter is a space to *feel* and *filter* what you hear. It helps users learn h
   - Chapter 1: Microinsults
   - Chapter 2: Microassaults
   - Chapter 3: Microinvalidations
-- Interactive quiz to test understanding
-- Modern, responsive website design
+- Direct chapter navigation with user name preservation
+- Comprehensive quiz system with:
+  - Interactive questions about microaggressions
+  - Detailed feedback for each answer
+  - Results page showing score and correct/incorrect answers
+  - Social sharing functionality (Twitter/X, Facebook, copy link)
+- Modern, responsive website design that works on all device sizes
 - Character-guided learning experience
 - Real-world scenario simulations
+- Enhanced security with server-side session storage for quiz results
 
 ## Setup
 
@@ -36,26 +42,40 @@ python app.py
 
 3. Open your browser and navigate to:
 ```
-http://localhost:5000
+http://localhost:5001
 ```
 
 ## Project Structure
 
-- `app.py` - Main Flask application
+- `app.py` - Main Flask application with routes and session management
 - `templates/` - HTML templates
   - `base.html` - Base template with navigation
-  - `homepage.html` - Homepage template
+  - `homepage.html` - Homepage template with responsive design
   - `novel.html` - Visual novel template
+  - `quiz_results.html` - Quiz results page with sharing functionality
 - `static/` - Static files
-  - `style/` - CSS files
-  - `js/` - JavaScript files
-    - `script.js` - Main story content and scenarios
-    - `quiz-data.js` - Quiz questions and answers
-  - `assets/` - Images and other assets
+  - `Media/` - Images including homepage graphics
+  - `visual-novel/` - Visual novel assets and scripts
+- `style/` - CSS files
+  - `main.css` - Main styles for the application
+- `js/` - JavaScript files
+- `engine/` - Visual novel engine components
 
 ## Development
 
 To modify the learning content:
-- Edit `js/script.js` to update the visual novel scenarios
-- Edit `js/quiz-data.js` to modify quiz questions and answers
-- Edit files in the `style/` directory to update the website design 
+- Edit visual novel scripts to update the scenarios and stories
+- Modify quiz questions and answers in the quiz data
+- Update the responsive styles in `style/main.css`
+
+## Security Features
+
+- Quiz results are stored in server-side sessions rather than URL parameters
+- Each quiz attempt generates a unique ID to prevent manipulation
+- Input validation on all form submissions
+
+## Accessibility
+
+- Responsive design works across all device sizes
+- Semantic HTML structure for better screen reader compatibility
+- Keyboard navigable interface 
