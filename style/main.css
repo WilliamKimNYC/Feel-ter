@@ -214,7 +214,6 @@ body {
   z-index: -1;
   pointer-events: none;
   max-width: 35%; /* Ensures image doesn't get too large on wide screens */
-  opacity: 0.8; /* Slightly transparent to ensure it doesn't dominate content */
   transition: all 0.3s ease; /* Smooth transitions when screen size changes */
 }
 
