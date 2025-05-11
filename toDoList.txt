@@ -1,14 +1,11 @@
 **URGENT**
-- write the actual quiz questions
 - fully flesh out the scenarios
-- fix the css on that one dialogue option
 - title screen for vn (replace the picture of columbia)
 - make transition slide that clearly says "Quiz" 
 - some of the dialogue is weird "player uses "you" instead of "i"
 - when player thinks, it should say player's name
 - change font so quotation marks don't look stupid
 - go to a specific chapter, then see the dropdown in the navbar.
-- quiz results: answer question 3 correct and see what happens...
 
 **IF WE HAVE TIME**
 - custom favicon
@@ -22,3 +19,6 @@
 - just make the whole shit responsive
 - Update github (only Jiayi can do)
     - add desicription, website
+
+
+

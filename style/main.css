@@ -374,11 +374,14 @@ body {
   text-align: center;
   margin-bottom: 1rem;
   color: var(--main-text, rgb(0, 0, 0));
+  width: 100%;
+  display: block;
 }
 
 [data-component="Choice"] {
   position: relative;
   z-index: 20; /* higher than the log screen */
+  width: 100%;
 }
 
 log-screen {
@@ -401,6 +404,7 @@ log-screen {
   word-wrap: break-word;
   text-align: left;
   line-height: 1.4;
+  position: relative;
 }
 
 [data-component="choice-container"] button:hover {

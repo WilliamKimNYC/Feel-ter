@@ -2,132 +2,132 @@ const quizData = {
     questions: [
         {
             id: 1,
-            text: "What is a microaggression?",
+            text: "A coworker says during a team meeting, <i>Wow, you're really articulate!</i> What kind of microaggression might this be?",
             options: [
                 {
-                    text: "A subtle, often unintentional expression of bias or prejudice",
+                    text: "Microinsult",
                     isCorrect: true
                 },
                 {
-                    text: "An obvious act of discrimination",
+                    text: "Microassault",
                     isCorrect: false
                 },
                 {
-                    text: "A formal complaint about workplace behavior",
+                    text: "Microinvalidation",
                     isCorrect: false
                 },
                 {
-                    text: "A type of workplace harassment",
+                    text: "A simple compliment",
                     isCorrect: false
                 }
             ],
             feedback: {
-                correct: "Correct! Microaggressions are subtle, often unintentional expressions of bias or prejudice.",
-                incorrect: "Not quite. Microaggressions are subtle, often unintentional expressions of bias or prejudice."
+                correct: "Correct! It sounds like a compliment, but implies surprise that someone from your background is well-spoken — a classic microinsult.",
+                incorrect: "Not quite. This is a microinsult — it hides a stereotype under the disguise of praise."
             }
         },
         {
             id: 2,
-            text: "Which of the following is an example of an environmental microaggression?",
+            text: "Someone says, <i>I don't see race. We're all just people.</i> What kind of microaggression is this?",
             options: [
                 {
-                    text: "A workplace with only one type of demographic in leadership photos",
+                    text: "Microinsult",
+                    isCorrect: false
+                },
+                {
+                    text: "Microassault",
+                    isCorrect: false
+                },
+                {
+                    text: "Microinvalidation",
                     isCorrect: true
                 },
                 {
-                    text: "A coworker making a comment about someone's accent",
-                    isCorrect: false
-                },
-                {
-                    text: "A manager assigning tasks based on stereotypes",
-                    isCorrect: false
-                },
-                {
-                    text: "A colleague using inappropriate language",
+                    text: "A compliment about equality",
                     isCorrect: false
                 }
             ],
             feedback: {
-                correct: "Correct! Environmental microaggressions are subtle messages in our physical surroundings that make certain groups feel unwelcome.",
-                incorrect: "Not quite. Environmental microaggressions are subtle messages in our physical surroundings, like having only one type of demographic in leadership photos."
+                correct: "Correct! This is a microinvalidation because it erases the lived experience of racial identity.",
+                incorrect: "Not quite. It's a microinvalidation — ignoring race can dismiss someone's identity and challenges."
             }
         },
         {
             id: 3,
-            text: "What is the most effective way to respond to a microaggression?",
+            text: "You apply for a leadership role and someone says, <i>You're really confident for a woman.</i> Why is this comment problematic?",
             options: [
                 {
-                    text: "Address it calmly and professionally while maintaining a constructive dialogue",
+                    text: "It reinforces gender stereotypes",
                     isCorrect: true
                 },
                 {
-                    text: "Ignore it to avoid conflict",
+                    text: "It's openly hostile",
                     isCorrect: false
                 },
                 {
-                    text: "Respond with anger to make your point",
+                    text: "It's just awkward phrasing",
                     isCorrect: false
                 },
                 {
-                    text: "Report it immediately to HR",
+                    text: "It's a microassault",
                     isCorrect: false
                 }
             ],
             feedback: {
-                correct: "Correct! Addressing microaggressions calmly and professionally while maintaining a constructive dialogue is the most effective approach.",
-                incorrect: "Not quite. The most effective approach is to address it calmly and professionally while maintaining a constructive dialogue."
+                correct: "Correct! This is a microinsult that reinforces a stereotype that women aren't expected to be confident.",
+                incorrect: "Not quite. This is a microinsult because it reinforces gender-based assumptions about leadership."
             }
         },
         {
             id: 4,
-            text: "Which of the following is an example of a verbal microaggression?",
+            text: "A classmate says, <i>Can you help me with the math homework? People from your country are always good at this stuff.</i> What kind of microaggression is this?",
             options: [
                 {
-                    text: "You're so articulate for someone from your background!",
+                    text: "Microinsult",
                     isCorrect: true
                 },
                 {
-                    text: "Please submit your report by Friday.",
+                    text: "Microassault",
                     isCorrect: false
                 },
                 {
-                    text: "Good morning, how are you?",
+                    text: "Microinvalidation",
                     isCorrect: false
                 },
                 {
-                    text: "The meeting starts at 2 PM.",
+                    text: "Positive stereotyping",
                     isCorrect: false
                 }
             ],
             feedback: {
-                correct: "Correct! This comment implies prejudiced expectations based on someone's background.",
-                incorrect: "Not quite. The comment \"You're so articulate for someone from your background!\" is a verbal microaggression because it implies prejudiced expectations."
+                correct: "Correct! This is a microinsult — it's stereotyping disguised as a compliment.",
+                incorrect: "Not quite. Even though it sounds positive, it's a microinsult because it reduces a person to a stereotype."
             }
         },
         {
             id: 5,
-            text: "What is the purpose of addressing microaggressions?",
+            text: "A manager keeps mispronouncing your name and says, <i>It's just too hard to say.</i> What type of microaggression is this?",
             options: [
                 {
-                    text: "To create more inclusive environments through education and growth",
+                    text: "Microinsult",
+                    isCorrect: false
+                },
+                {
+                    text: "Microassault",
+                    isCorrect: false
+                },
+                {
+                    text: "Microinvalidation",
                     isCorrect: true
                 },
                 {
-                    text: "To punish those who commit microaggressions",
-                    isCorrect: false
-                },
-                {
-                    text: "To create conflict in the workplace",
-                    isCorrect: false
-                },
-                {
-                    text: "To document workplace issues",
+                    text: "An honest mistake",
                     isCorrect: false
                 }
             ],
             feedback: {
-                correct: "Correct! The purpose is to create more inclusive environments through education and growth, not blame or shame.",
-                incorrect: "Not quite. The purpose is to create more inclusive environments through education and growth, not to punish or create conflict."
+                correct: "Correct! This is a microinvalidation because it dismisses your identity by refusing to respect your name.",
+                incorrect: "Not quite. This is a microinvalidation — ignoring someone's name erases part of who they are."
             }
         }
     ]
