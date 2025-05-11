@@ -7,6 +7,16 @@ import json
 app = Flask(__name__, static_folder='.', static_url_path='')
 app.secret_key = secrets.token_hex(16)
 
+# Add CORS support for Vercel with more permissive settings
+from flask_cors import CORS
+CORS(app, resources={
+    r"/*": {
+        "origins": "*",
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"]
+    }
+})
+
 @app.route('/')
 def homepage():
     return render_template('homepage.html')
@@ -92,5 +102,9 @@ def serve_style(filename):
 def serve_engine(filename):
     return send_from_directory('engine', filename)
 
+# Modify the main block for Vercel
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
+else:
+    # This is for Vercel
+    app = app

@@ -1,0 +1,35 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "app.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
+            "src": "/assets/(.*)",
+            "dest": "/assets/$1"
+        },
+        {
+            "src": "/js/(.*)",
+            "dest": "/js/$1"
+        },
+        {
+            "src": "/style/(.*)",
+            "dest": "/style/$1"
+        },
+        {
+            "src": "/engine/(.*)",
+            "dest": "/engine/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "app.py"
+        }
+    ]
+} 

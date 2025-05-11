@@ -56,9 +56,9 @@ http://localhost:5001
 - `static/` - Static files
   - `Media/` - Images including homepage graphics
   - `visual-novel/` - Visual novel assets and scripts
-- `style/` - CSS files
+  - `style/` - CSS files
   - `main.css` - Main styles for the application
-- `js/` - JavaScript files
+  - `js/` - JavaScript files
 - `engine/` - Visual novel engine components
 
 ## Development
