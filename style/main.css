@@ -25,6 +25,31 @@
   --navbar-height: 60px;
 }
 
+/* Browser-specific fixes */
+@-moz-document url-prefix() {
+  /* Firefox-specific styles */
+  body {
+    min-height: 100vh;
+    height: auto;
+  }
+  
+  #monogatari {
+    height: auto;
+    min-height: calc(100vh - var(--navbar-height));
+  }
+}
+
+/* Safari-specific styles */
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
+  
+  #monogatari {
+    height: -webkit-fill-available;
+  }
+}
+
 h1,
 h2 {
   font-family: "Tagesschrift", sans-serif;

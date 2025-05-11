@@ -25,6 +25,18 @@
 
 const { $_ready, $_ } = Monogatari;
 
+// Add browser detection
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+
+// Browser-specific fixes
+if (isSafari || isFirefox) {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+  window.addEventListener('resize', () => {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+  });
+}
+
 // 1. Outside the $_ready function:
 
 // Store the target chapter to jump to after name input
