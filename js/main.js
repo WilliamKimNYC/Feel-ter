@@ -43,7 +43,7 @@ if (isSafari || isFirefox) {
 let targetChapter = null;
 
 $_ready(() => {
-  // 2. Inside the $_ready function:
+	// 2. Inside the $_ready function:
 
   monogatari.init("#monogatari").then(() => {
 
@@ -60,8 +60,8 @@ $_ready(() => {
           prompt.innerText = "Select the best option:";
           container.insertBefore(prompt, container.firstChild);
         }
-      });
-    });
+	});
+});
     const gameScreen = document.querySelector('[data-screen="game"]');
     if (gameScreen) {
       observer.observe(gameScreen, {
@@ -71,8 +71,8 @@ $_ready(() => {
     }
 
     // Get URL parameters
-    const params = new URLSearchParams(window.location.search);
-    const chapter = params.get("chapter");
+const params = new URLSearchParams(window.location.search);
+const chapter = params.get("chapter");
 
     // If a chapter is specified, store it for later use
     if (chapter) {
