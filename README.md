@@ -2,6 +2,10 @@
 
 A Flask-based interactive learning platform that helps users understand, recognize, and respond to microaggressions through an engaging visual novel experience and interactive quizzes.
 
+## Live Site
+
+Visit Feel-ter at [https://www.feel-ter.com/](https://www.feel-ter.com/)
+
 ## About
 
 Feel-ter is a space to *feel* and *filter* what you hear. It helps users learn how to:
@@ -28,7 +32,7 @@ Feel-ter is a space to *feel* and *filter* what you hear. It helps users learn h
 - Real-world scenario simulations
 - Enhanced security with server-side session storage for quiz results
 
-## Setup
+## Local Development Setup
 
 1. Install Python dependencies:
 ```bash

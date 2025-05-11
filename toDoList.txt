@@ -8,6 +8,7 @@
 - when player thinks, it should say player's name
 - change font so quotation marks don't look stupid
 - go to a specific chapter, then see the dropdown in the navbar.
+- quiz results: answer question 3 correct and see what happens...
 
 **IF WE HAVE TIME**
 - custom favicon
@@ -19,3 +20,4 @@
 
 - make navbar responsive (fix it)
 - just make the whole shit responsive
+
