@@ -9,27 +9,48 @@
     "routes": [
         {
             "src": "/static/(.*)",
-            "dest": "/static/$1"
+            "dest": "/static/$1",
+            "headers": {
+                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+            }
         },
         {
             "src": "/assets/(.*)",
-            "dest": "/assets/$1"
+            "dest": "/assets/$1",
+            "headers": {
+                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+            }
         },
         {
             "src": "/js/(.*)",
-            "dest": "/js/$1"
+            "dest": "/js/$1",
+            "headers": {
+                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+            }
         },
         {
             "src": "/style/(.*)",
-            "dest": "/style/$1"
+            "dest": "/style/$1",
+            "headers": {
+                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+            }
         },
         {
             "src": "/engine/(.*)",
-            "dest": "/engine/$1"
+            "dest": "/engine/$1",
+            "headers": {
+                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+            }
         },
         {
             "src": "/(.*)",
-            "dest": "app.py"
+            "dest": "app.py",
+            "headers": {
+                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
+            }
         }
-    ]
+    ],
+    "github": {
+        "silent": true
+    }
 } 
