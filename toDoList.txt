@@ -20,4 +20,5 @@
 
 - make navbar responsive (fix it)
 - just make the whole shit responsive
-
+- Update github (only Jiayi can do)
+    - add desicription, website
