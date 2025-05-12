@@ -332,7 +332,7 @@ monogatari.script({
     "next",
     "show character alex explaining at center with fadeIn",
     "play voice alex",
-    "alex The key is: did the comment make you feel 'othered' or different based on your identity?",
+    "alex The key is: did the comment make you feel “othered\" or different based on your identity?",
     "next",
     "jump Chapter2",
   ],
