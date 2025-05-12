@@ -60,7 +60,7 @@ monogatari.assets("images", {});
 
 // Define the backgrounds for each scene.
 monogatari.assets("scenes", {
-  "main-menu": "main-menu-bg.jpg",
+  "main-menu": "centralpark.jpg",
   study_room: "study-room.jpg",
   cafe: "cafe.jpg",
   classroom: "gym.jpeg",
