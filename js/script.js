@@ -788,8 +788,7 @@ function generateQuizScenes(quizData) {
     "show character alex default at center with fadeIn",
     "alex You deserve to be seen, heard, and respected — always.",
     "next",
-    "Thank you for playing!",
-    "end",
+    "alex Thank you for playing!",
 
     {
       Function: {
