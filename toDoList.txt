@@ -2,8 +2,8 @@
 - fully flesh out the scenarios
 - some of the dialogue is weird "player uses "you" instead of "i"
 - make transition slide that clearly says "Quiz" 
-- change font so quotation marks don't look stupid
-- when player thinks, it should say player's name
+DONE - change font so quotation marks don't look stupid
+DONE - when player thinks, it should say player's name
 - go to a specific chapter, then see the dropdown in the navbar.
 
 **IF WE HAVE TIME**

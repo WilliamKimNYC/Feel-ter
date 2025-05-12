@@ -32,7 +32,7 @@
     min-height: 100vh;
     height: auto;
   }
-  
+
   #monogatari {
     height: auto;
     min-height: calc(100vh - var(--navbar-height));
@@ -44,7 +44,7 @@
   body {
     min-height: -webkit-fill-available;
   }
-  
+
   #monogatari {
     height: -webkit-fill-available;
   }
@@ -279,11 +279,8 @@ body {
 /* Dialogue Styles */
 
 .inner-thought {
-  color: #fff;
-  padding: 1em 1.5em;
-  margin: 1em auto;
+  color: #d1d1d1;
   font-style: italic;
-  max-width: fit-content;
 }
 
 /* General Styling for Menu Screens */

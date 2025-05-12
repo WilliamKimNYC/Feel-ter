@@ -27,13 +27,19 @@ const { $_ready, $_ } = Monogatari;
 
 // Add browser detection
 const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+const isFirefox = navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
 
 // Browser-specific fixes
 if (isSafari || isFirefox) {
-  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-  window.addEventListener('resize', () => {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+  document.documentElement.style.setProperty(
+    "--vh",
+    `${window.innerHeight * 0.01}px`
+  );
+  window.addEventListener("resize", () => {
+    document.documentElement.style.setProperty(
+      "--vh",
+      `${window.innerHeight * 0.01}px`
+    );
   });
 }
 
@@ -43,12 +49,10 @@ if (isSafari || isFirefox) {
 let targetChapter = null;
 
 $_ready(() => {
-	// 2. Inside the $_ready function:
+  // 2. Inside the $_ready function:
 
   monogatari.init("#monogatari").then(() => {
-
-
-	// add the 'Select the best option' above choices
+    // add the 'Select the best option' above choices
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         const container = document.querySelector(
@@ -60,8 +64,8 @@ $_ready(() => {
           prompt.innerText = "Select the best option:";
           container.insertBefore(prompt, container.firstChild);
         }
-	});
-});
+      });
+    });
     const gameScreen = document.querySelector('[data-screen="game"]');
     if (gameScreen) {
       observer.observe(gameScreen, {
@@ -71,8 +75,8 @@ $_ready(() => {
     }
 
     // Get URL parameters
-const params = new URLSearchParams(window.location.search);
-const chapter = params.get("chapter");
+    const params = new URLSearchParams(window.location.search);
+    const chapter = params.get("chapter");
 
     // If a chapter is specified, store it for later use
     if (chapter) {
