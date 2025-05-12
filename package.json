@@ -1,14 +1,14 @@
 {
-  "name": "my-game",
-  "productName": "My Game",
-  "version": "0.1.0",
+  "name": "feel-ter",
+  "productName": "Feel-ter",
+  "version": "1.0.0",
   "main": "engine/electron/index.js",
-  "description": "A description of your game",
-  "author": "Your Name",
+  "description": "An interactive learning experience about microaggressions",
+  "author": "Feel-ter Team",
   "license": "MIT",
-  "homepage": "https://example.com",
+  "homepage": "https://www.feel-ter.com",
   "build": {
-    "appId": "com.example.mygame",
+    "appId": "com.feelter.app",
     "win": {
       "target": [
         "nsis"
@@ -16,7 +16,7 @@
       "icon": "assets/icons/icon.ico"
     },
     "mac": {
-      "category": "public.app-category.games",
+      "category": "public.app-category.education",
       "target": [
         "zip"
       ],
@@ -28,12 +28,12 @@
       "gatekeeperAssess": false
     },
     "linux": {
-      "category": "Game",
+      "category": "Education",
       "target": [
         "AppImage"
       ],
-      "synopsis": "A small synopsis of your game",
-      "description": "A more detailed description of your game"
+      "synopsis": "Learn about microaggressions through an interactive experience",
+      "description": "Feel-ter is an interactive learning experience that helps users understand and identify microaggressions in everyday situations."
     },
     "icon": "assets/icons/512x512.png",
     "afterSign": "engine/electron/notarize.js"
