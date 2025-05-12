@@ -234,11 +234,35 @@ body {
   position: absolute;
   bottom: 2rem;
   left: 3rem;
-  width: 16rem;
+  width: 20vw;
   height: auto;
   z-index: -1;
   pointer-events: none;
-  max-width: 35%; /* Ensures image doesn't get too large on wide screens */
+  max-width: 25%; /* Ensures image doesn't get too large on wide screens */
+  transition: all 0.3s ease; /* Smooth transitions when screen size changes */
+}
+
+.homepage-mouth {
+  position: absolute;
+  top: 5rem;
+  left: 3rem;
+  width: 25vw;
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
+  max-width: 25%; /* Ensures image doesn't get too large on wide screens */
+  transition: all 0.3s ease; /* Smooth transitions when screen size changes */
+}
+
+.homepage-flower {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  width: 20vw;
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
+  max-width: 25%; /* Ensures image doesn't get too large on wide screens */
   transition: all 0.3s ease; /* Smooth transitions when screen size changes */
 }
 
