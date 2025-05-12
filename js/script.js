@@ -97,7 +97,7 @@ monogatari.characters({
   },
   manager: {
     name: "Manager",
-    color: "#bd32cc",
+    color: "#ee55ff",
     directory: "manager",
     sprites: {
       default: "default.png",
@@ -135,7 +135,36 @@ monogatari.script({
         Warning: "Please enter your name to continue.",
       },
     },
-    "jump Intro",
+    {
+      // Modify the existing Start scene to jump to the target chapter after name input
+      Function: {
+        Apply: function () {
+          const chapter = new URLSearchParams(window.location.search).get(
+            "chapter"
+          );
+
+          if (chapter === "quiz") {
+            monogatari.run("jump Dynamic_Quiz_1");
+            return false; // Prevent Monogatari from continuing
+          }
+          if (chapter === "Chapter1") {
+            monogatari.run("jump Chapter1");
+            return false;
+          }
+          if (chapter === "Chapter2") {
+            monogatari.run("jump Chapter2");
+            return false;
+          }
+          if (chapter === "Chapter3") {
+            monogatari.run("jump Chapter3");
+            return false;
+          }
+
+          monogatari.run("jump Intro");
+          return false; // continue to "Intro" if no chapter param
+        },
+      },
+    },
   ],
 
   Intro: [
@@ -189,11 +218,11 @@ monogatari.script({
           Do: "jump Chapter1_Feedback1",
         },
         "Say from here": {
-          Text: "Say: I'm from here. Why do you ask?",
+          Text: "Say: “I'm from here. Why do you ask?\"",
           Do: "jump Chapter1_Feedback2",
         },
         "Laugh about Mars": {
-          Text: 'Laugh and say, "I\'m from Mars."',
+          Text: "Laugh and say, “I'm from Mars.\"",
           Do: "jump Chapter1_Feedback3",
         },
       },
@@ -201,7 +230,6 @@ monogatari.script({
   ],
 
   Chapter1_Feedback1: [
-    "play voice player",
     "player <i>Smiles awkwardly and change the topic.</i>",
     "show scene study_room with fadeIn",
     "show character classmate default at center with fadeIn",
@@ -343,7 +371,7 @@ monogatari.script({
     {
       Choice: {
         "Ask about vibe": {
-          Text: "Ask: \"What do you mean by 'vibe'?\"",
+          Text: "Ask: “What do you mean by 'vibe'?\"",
           Do: "jump Chapter2_Feedback1",
         },
         "Stay quiet": {
@@ -360,7 +388,7 @@ monogatari.script({
 
   Chapter2_Feedback1: [
     "play voice player",
-    "player What do you mean by 'vibe'?",
+    'player What do you mean by “vibe"?',
     "show scene cafe with fadeIn",
     "show character manager default at center with fadeIn",
     "next",
@@ -373,7 +401,6 @@ monogatari.script({
   ],
 
   Chapter2_Feedback2: [
-    "play voice player",
     "player <i>Assumes it's about your clothes and stay quiet</i>",
     "show scene cafe with fadeIn",
     "show character manager default at center with fadeIn",
@@ -394,7 +421,6 @@ monogatari.script({
   ],
 
   Chapter2_Feedback3: [
-    "play voice player",
     "player <i>Leaves without saying anything.</i>",
     "show scene cafe with fadeIn",
     "show character manager default at center with fadeIn",
@@ -497,7 +523,7 @@ monogatari.script({
           Do: "jump Chapter3_Feedback1",
         },
         "Ask why": {
-          Text: 'Ask, "Why wouldn\'t you expect that?"',
+          Text: "Ask, “Why wouldn't you expect that?\"",
           Do: "jump Chapter3_Feedback2",
         },
         "Laugh it off": {
@@ -510,7 +536,7 @@ monogatari.script({
 
   Chapter3_Feedback1: [
     "play voice player",
-    "player Thanks...",
+    "player Thanks... Anyways...",
     "show scene classroom with fadeIn",
     "show character classmate default at center with fadeIn",
     "next",

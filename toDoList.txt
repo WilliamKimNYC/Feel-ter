@@ -4,6 +4,7 @@
 - make transition slide that clearly says "Quiz" 
 DONE - change font so quotation marks don't look stupid
 DONE - when player thinks, it should say player's name
+DONE - remove player voice when they're not directly speaking
 - go to a specific chapter, then see the dropdown in the navbar.
 
 **IF WE HAVE TIME**

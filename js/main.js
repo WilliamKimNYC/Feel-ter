@@ -82,53 +82,7 @@ $_ready(() => {
     if (chapter) {
       targetChapter = chapter;
 
-      // Modify the existing Start scene to jump to the target chapter after name input
-      monogatari.script({
-        Start: [
-          "show scene main-menu with fadeIn",
-          "play music main_theme with loop fade 2",
-          "show notification Welcome",
-          {
-            Input: {
-              Text: "Before we begin, what is your name?",
-              Validation: function (input) {
-                return input.trim().length > 0;
-              },
-              Save: function (input) {
-                monogatari.storage({
-                  player: {
-                    name: input,
-                  },
-                });
-
-                // After saving the name, jump to the target chapter
-                if (targetChapter === "quiz") {
-                  monogatari.run("jump Dynamic_Quiz_1");
-                } else if (targetChapter === "Chapter1") {
-                  monogatari.run("jump Chapter1");
-                } else if (targetChapter === "Chapter2") {
-                  monogatari.run("jump Chapter2");
-                } else if (targetChapter === "Chapter3") {
-                  monogatari.run("jump Chapter3");
-                } else {
-                  // If no specific chapter is targeted, continue with the normal flow
-                  monogatari.run("jump Intro");
-                }
-
-                return true;
-              },
-              Revert: function () {
-                monogatari.storage({
-                  player: {
-                    name: "",
-                  },
-                });
-              },
-              Warning: "Please enter your name to continue.",
-            },
-          },
-        ],
-      });
+      monogatari.script({});
     }
   });
 });
