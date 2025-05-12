@@ -1,10 +1,9 @@
 **URGENT**
 - fully flesh out the scenarios
-- title screen for vn (replace the picture of columbia)
-- make transition slide that clearly says "Quiz" 
 - some of the dialogue is weird "player uses "you" instead of "i"
-- when player thinks, it should say player's name
+- make transition slide that clearly says "Quiz" 
 - change font so quotation marks don't look stupid
+- when player thinks, it should say player's name
 - go to a specific chapter, then see the dropdown in the navbar.
 
 **IF WE HAVE TIME**
