@@ -332,7 +332,7 @@ monogatari.script({
     "next",
     "show character alex explaining at center with fadeIn",
     "play voice alex",
-    "alex The key is: did the comment make you feel “othered\" or different based on your identity?",
+    'alex The key is: did the comment make you feel “othered" or different based on your identity?',
     "next",
     "jump Chapter2",
   ],
@@ -729,8 +729,8 @@ function generateQuizScenes(quizData) {
       choices[opt.text] = { Text: opt.text, Do: `jump ${feedbackLabel}` };
 
       scriptBlocks[feedbackLabel] = [
-        "show scene classroom with fadeIn",
-        "show character alex default at center with fadeIn",
+        "show scene classroom",
+        "show character alex default at center",
         {
           Function: {
             Apply: function () {
@@ -775,8 +775,22 @@ function generateQuizScenes(quizData) {
   // Add ending label with score tracking and redirection
   scriptBlocks["Dynamic_Quiz_End"] = [
     "show scene classroom with fadeIn",
-    "show character alex default at center with fadeIn",
+    "show character alex happy at center with fadeIn",
     "alex Great job completing the quiz!",
+    "show character alex default at center with fadeIn",
+    "alex Today you learned how to spot microaggressions, microassaults, and microinsults — and why they matter.",
+    "next",
+    "show character alex explaining at center with fadeIn",
+    "alex Even small words can carry big messages.",
+    "next",
+    "alex It's okay to notice them. It's okay to respond.",
+    "next",
+    "show character alex default at center with fadeIn",
+    "alex You deserve to be seen, heard, and respected — always.",
+    "next",
+    "Thank you for playing!",
+    "end",
+
     {
       Function: {
         Apply: function () {
