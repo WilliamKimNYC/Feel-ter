@@ -1,6 +1,6 @@
 **URGENT**
 - fully flesh out the scenarios
-- some of the dialogue is weird "player uses "you" instead of "i"
+DONE - some of the dialogue is weird "player uses "you" instead of "i"
 - make transition slide that clearly says "Quiz" 
 DONE - change font so quotation marks don't look stupid
 DONE - when player thinks, it should say player's name

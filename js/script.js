@@ -307,7 +307,7 @@ monogatari.script({
 
   Chapter1_Quiz_Correct: [
     "play voice player",
-    "player It questioned your belonging based on stereotypes.",
+    "player It questioned my belonging based on stereotypes.",
     "show character alex happy at center with fadeIn",
     "play voice alex",
     "alex Exactly!",
