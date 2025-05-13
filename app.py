@@ -4,7 +4,10 @@ import secrets
 import uuid
 import json
 
-app = Flask(__name__, static_folder='static', static_url_path='/static')
+# Configure static folder properly
+app = Flask(__name__, 
+           static_folder='static', 
+           static_url_path='/static')
 app.secret_key = secrets.token_hex(16)
 
 # Add CORS support for Vercel with more permissive settings

@@ -4,6 +4,38 @@
         {
             "src": "app.py",
             "use": "@vercel/python"
+        },
+        {
+            "src": "static/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "js/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "style/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "engine/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "assets/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "favicon.ico",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "manifest.json",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "service-worker.js",
+            "use": "@vercel/static"
         }
     ],
     "routes": [

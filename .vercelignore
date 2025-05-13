@@ -2,4 +2,6 @@
 __pycache__
 *.pyc
 .DS_Store
-.vercel/README.txt 
+.vercel/README.txt
+*.md
+!README.md 
