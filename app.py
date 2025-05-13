@@ -4,7 +4,7 @@ import secrets
 import uuid
 import json
 
-app = Flask(__name__, static_folder='.', static_url_path='')
+app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
 
 # Add CORS support for Vercel with more permissive settings
@@ -88,15 +88,15 @@ def save_quiz_result():
 
 @app.route('/assets/<path:filename>')
 def serve_assets(filename):
-    return send_from_directory('assets', filename)
+    return send_from_directory('static/assets', filename)
 
 @app.route('/js/<path:filename>')
 def serve_js(filename):
-    return send_from_directory('js', filename)
+    return send_from_directory('static/js', filename)
 
 @app.route('/style/<path:filename>')
 def serve_style(filename):
-    return send_from_directory('style', filename)
+    return send_from_directory('static/style', filename)
 
 @app.route('/engine/<path:filename>')
 def serve_engine(filename):

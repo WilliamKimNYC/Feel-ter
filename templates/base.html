@@ -12,14 +12,14 @@
     <meta property="og:url" content="https://www.feel-ter.com/" />
     <meta property="og:title" content="Feel-ter - Understanding Microaggressions" />
     <meta property="og:description" content="Learn how to recognize microaggressions, understand why they hurt, and figure out what to say — or not say — next." />
-    <meta property="og:image" content="https://www.feel-ter.com/static/Media/homepage-eye.webp" />
+    <meta property="og:image" content="{{ url_for('static', filename='Media/homepage-eye.webp') }}" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://www.feel-ter.com/" />
     <meta property="twitter:title" content="Feel-ter - Understanding Microaggressions" />
     <meta property="twitter:description" content="Learn how to recognize microaggressions, understand why they hurt, and figure out what to say — or not say — next." />
-    <meta property="twitter:image" content="https://www.feel-ter.com/static/Media/homepage-eye.webp" />
+    <meta property="twitter:image" content="{{ url_for('static', filename='Media/homepage-eye.webp') }}" />
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
@@ -51,7 +51,7 @@
     />
     <link
       rel="stylesheet"
-      href="{{ url_for('serve_style', filename='main.css') }}"
+      href="{{ url_for('static', filename='style/main.css') }}"
     />
 
     {% block extra_css %}{% endblock %}

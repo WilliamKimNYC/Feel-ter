@@ -5,19 +5,19 @@ const quizData = {
             text: "What is a microaggression?",
             options: [
                 {
-                    text: "A subtle, often unintentional expression of bias or prejudice",
-                    isCorrect: true
-                },
-                {
                     text: "An obvious act of discrimination",
                     isCorrect: false
                 },
                 {
-                    text: "A formal complaint about workplace behavior",
-                    isCorrect: false
+                    text: "A subtle, often unintentional expression of bias or prejudice",
+                    isCorrect: true
                 },
                 {
                     text: "A type of workplace harassment",
+                    isCorrect: false
+                },
+                {
+                    text: "A formal complaint about workplace behavior",
                     isCorrect: false
                 }
             ],
@@ -31,16 +31,16 @@ const quizData = {
             text: "What is the most effective way to respond to a microaggression?",
             options: [
                 {
-                    text: "Address it calmly and professionally while maintaining a constructive dialogue",
-                    isCorrect: true
-                },
-                {
                     text: "Ignore it to avoid conflict",
                     isCorrect: false
                 },
                 {
                     text: "Respond with anger to make your point",
                     isCorrect: false
+                },
+                {
+                    text: "Address it calmly and professionally while maintaining a constructive dialogue",
+                    isCorrect: true
                 },
                 {
                     text: "Report it immediately to HR",
@@ -57,10 +57,6 @@ const quizData = {
             text: "You apply for a leadership role and someone says, <i>You're really confident for a woman.</i> Why is this comment problematic?",
             options: [
                 {
-                    text: "It reinforces gender stereotypes",
-                    isCorrect: true
-                },
-                {
                     text: "It's openly hostile",
                     isCorrect: false
                 },
@@ -71,6 +67,10 @@ const quizData = {
                 {
                     text: "It's a microassault",
                     isCorrect: false
+                },
+                {
+                    text: "It reinforces gender stereotypes",
+                    isCorrect: true
                 }
             ],
             feedback: {
@@ -83,16 +83,16 @@ const quizData = {
             text: "A classmate says, <i>Can you help me with the math homework? People from your country are always good at this stuff.</i> What kind of microaggression is this?",
             options: [
                 {
-                    text: "Microinsult",
-                    isCorrect: true
-                },
-                {
                     text: "Microassault",
                     isCorrect: false
                 },
                 {
                     text: "Microinvalidation",
                     isCorrect: false
+                },
+                {
+                    text: "Microinsult",
+                    isCorrect: true
                 },
                 {
                     text: "Positive stereotyping",
@@ -109,10 +109,6 @@ const quizData = {
             text: "What is the purpose of addressing microaggressions?",
             options: [
                 {
-                    text: "To create more inclusive environments through education and growth",
-                    isCorrect: true
-                },
-                {
                     text: "To punish those who commit microaggressions",
                     isCorrect: false
                 },
@@ -123,6 +119,10 @@ const quizData = {
                 {
                     text: "To document workplace issues",
                     isCorrect: false
+                },
+                {
+                    text: "To create more inclusive environments through education and growth",
+                    isCorrect: true
                 }
             ],
             feedback: {
