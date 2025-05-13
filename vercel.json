@@ -9,45 +9,39 @@
     "routes": [
         {
             "src": "/static/(.*)",
-            "dest": "/static/$1",
-            "headers": {
-                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
-            }
+            "dest": "/static/$1"
         },
         {
             "src": "/assets/(.*)",
-            "dest": "/assets/$1",
-            "headers": {
-                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
-            }
+            "dest": "/assets/$1"
         },
         {
             "src": "/js/(.*)",
-            "dest": "/js/$1",
-            "headers": {
-                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
-            }
+            "dest": "/js/$1"
         },
         {
             "src": "/style/(.*)",
-            "dest": "/style/$1",
-            "headers": {
-                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
-            }
+            "dest": "/style/$1"
         },
         {
             "src": "/engine/(.*)",
-            "dest": "/engine/$1",
-            "headers": {
-                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
-            }
+            "dest": "/engine/$1"
+        },
+        {
+            "src": "/favicon.ico",
+            "dest": "/favicon.ico"
+        },
+        {
+            "src": "/manifest.json",
+            "dest": "/manifest.json"
+        },
+        {
+            "src": "/service-worker.js",
+            "dest": "/service-worker.js"
         },
         {
             "src": "/(.*)",
-            "dest": "app.py",
-            "headers": {
-                "Strict-Transport-Security": "max-age=31536000; includeSubDomains"
-            }
+            "dest": "/app.py"
         }
     ],
     "github": {
