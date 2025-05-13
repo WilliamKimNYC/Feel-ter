@@ -145,7 +145,7 @@ monogatari.script({
 
           if (chapter === "quiz") {
             monogatari.run("jump Dynamic_Quiz_1");
-            return false; // Prevent Monogatari from continuing
+            return false;
           }
           if (chapter === "Chapter1") {
             monogatari.run("jump Chapter1");
@@ -161,7 +161,10 @@ monogatari.script({
           }
 
           monogatari.run("jump Intro");
-          return false; // continue to "Intro" if no chapter param
+          return false;
+        },
+        Revert: function () {
+          // No state to revert — safe no-op
         },
       },
     },
@@ -734,28 +737,44 @@ function generateQuizScenes(quizData) {
         {
           Function: {
             Apply: function () {
-              // Store the user's selection
-              let selections = this.storage("quizSelections") || {};
-              selections[index] = i; // Store option index selected for this question
+              const prevState = {
+                score: this.storage("quizScore"),
+                missed: [...(this.storage("quizMissed") || [])],
+                selections: { ...(this.storage("quizSelections") || {}) },
+              };
+              this.temp("quizPrevState_" + index, prevState);
 
-              // If the answer is correct, increment the score
+              // Update selections
+              let selections = { ...prevState.selections };
+              selections[index] = i;
+
               if (opt.isCorrect) {
                 this.storage({
-                  quizScore: this.storage("quizScore") + 1,
+                  quizScore: prevState.score + 1,
                   quizSelections: selections,
                 });
               } else {
-                // If incorrect, track the question index
-                let missed = this.storage("quizMissed") || [];
+                let missed = [...prevState.missed];
                 if (!missed.includes(index)) {
                   missed.push(index);
-                  this.storage({
-                    quizMissed: missed,
-                    quizSelections: selections,
-                  });
                 }
+                this.storage({
+                  quizMissed: missed,
+                  quizSelections: selections,
+                });
               }
+
               return true;
+            },
+            Revert: function () {
+              const prev = this.temp("quizPrevState_" + index);
+              if (prev) {
+                this.storage({
+                  quizScore: prev.score,
+                  quizMissed: prev.missed,
+                  quizSelections: prev.selections,
+                });
+              }
             },
           },
         },
