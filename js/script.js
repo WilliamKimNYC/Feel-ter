@@ -733,7 +733,9 @@ function generateQuizScenes(quizData) {
 
       scriptBlocks[feedbackLabel] = [
         "show scene classroom",
-        "show character alex default at center",
+        opt.isCorrect
+          ? "show character alex happy at center with fadeIn"
+          : "show character alex explaining at center with fadeIn",
         {
           Function: {
             Apply: function () {
