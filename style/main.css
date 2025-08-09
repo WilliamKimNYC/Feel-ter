@@ -637,6 +637,7 @@ input[type="range"]::-ms-fill-upper {
   position: relative;
   height: 2em;
   overflow: hidden;
+  margin-bottom: 2rem;
 }
 
 .fade-text {
@@ -645,6 +646,9 @@ input[type="range"]::-ms-fill-upper {
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
   margin: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
 }
 
 .fade-text.active {

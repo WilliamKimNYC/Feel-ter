@@ -4,7 +4,10 @@ import secrets
 import uuid
 import json
 
-app = Flask(__name__, static_folder='.', static_url_path='')
+# Configure static folder properly
+app = Flask(__name__, 
+           static_folder='static', 
+           static_url_path='/static')
 app.secret_key = secrets.token_hex(16)
 
 # Add CORS support for Vercel with more permissive settings
@@ -101,6 +104,18 @@ def serve_style(filename):
 @app.route('/engine/<path:filename>')
 def serve_engine(filename):
     return send_from_directory('engine', filename)
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory('.', 'favicon.ico')
+
+@app.route('/manifest.json')
+def manifest():
+    return send_from_directory('.', 'manifest.json')
+
+@app.route('/service-worker.js')
+def service_worker():
+    return send_from_directory('.', 'service-worker.js')
 
 # Modify the main block for Vercel
 if __name__ == '__main__':

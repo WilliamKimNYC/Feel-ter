@@ -1,12 +1,12 @@
 {% extends "base.html" %} {% block title %}Feel-ter{% endblock %} {% block
 content %}
-<script src="{{ url_for('static', filename='js/fade-transition.js') }}"></script>
+<script src="{{ url_for('serve_js', filename='fade-transition.js') }}"></script>
 <div
   class="container-fluid min-vh-100 d-flex justify-content-center align-items-center"
 >
-  <img src="/static/Media/homepage-eye.webp" class="homepage-eye" />
-  <img src="/static/Media/mouth.webp" class="homepage-mouth" />
-  <img src="/static/Media/flower.webp" class="homepage-flower" />
+  <img src="{{ url_for('static', filename='Media/homepage-eye.webp') }}" class="homepage-eye" />
+  <img src="{{ url_for('static', filename='Media/mouth.webp') }}" class="homepage-mouth" />
+  <img src="{{ url_for('static', filename='Media/flower.webp') }}" class="homepage-flower" />
   <div class="row justify-content-center">
     <div class="col-12 col-md-12 col-lg-12">
       <div class="homepage-content text-center">
@@ -15,7 +15,7 @@ content %}
           <h3 class="span-xl fade-text active">Some words linger.</h3>
           <h3 class="span-xl fade-text">Some glances jab.</h3>
           <h3 class="span-xl fade-text">
-            Some “jokes” don’t feel like jokes at all.
+            Some "jokes" don't feel like jokes at all.
           </h3>
         </div>
         <h3 class="span-xl mb-5">
