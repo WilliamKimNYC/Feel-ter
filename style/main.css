@@ -320,7 +320,7 @@ body {
 /* Main Menu Styling */
 [data-screen="main"] {
   background-image: url("../static/visual-novel/assets/images/main-menu-bg.jpg");
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
